@@ -898,18 +898,27 @@ DEPENDS += " \
     libffi \
     libpng \
     libusb1 \
-    npm \
     udev \
     python3-pip \
     python3 \
     "
 
-RDEPENDS += \
+RDEPENDS += " \
     echo \
     bash \
+    bluez \
+    boost \
+    curl \
+    glib2 \
+    libffi \
+    libpng \
+    libusb1 \
     make \
+    npm \
+    nvm \
     python3 \
     python3-pip \
+    udev \
     "
 
 # Modify these as desired

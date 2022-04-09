@@ -904,6 +904,14 @@ DEPENDS += " \
     python3 \
     "
 
+RDEPENDS += \
+    echo \
+    bash \
+    make \
+    python3 \
+    python3-pip \
+    "
+
 # Modify these as desired
 PV = "1.1.0+git${SRCPV}"
 SRCREV = "4c600fc973effc9dad335f65c3dea243bd5da225"

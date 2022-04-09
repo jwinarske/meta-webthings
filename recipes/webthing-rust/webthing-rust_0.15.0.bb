@@ -214,5 +214,5 @@ LICENSE = "MPL-2.0"
 # includes this file if it exists but does not fail
 # this is useful for anything you may want to override from
 # what cargo-bitbake generates.
-include webthing-rust-${PV}.inc
+include webthing-rust_${PV}.inc
 include webthing-rust.inc

@@ -1,3 +1,7 @@
+# Recipe created by recipetool
+# This is the basis of a recipe and may need further editing in order to be fully functional.
+# (Feel free to remove these comments when editing.)
+
 SUMMARY = "Web of Things gateway"
 HOMEPAGE = "https://webthings.io"
 # WARNING: the following LICENSE and LIC_FILES_CHKSUM values are best guesses - it is
@@ -104,36 +108,23 @@ LICENSE = "Unknown & MIT & ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9741c346eef56131163e13b9db1241b3 \
                     file://deb/debian/copyright;md5=282eedc40a1b64e253f54bca1ef40d25 \
                     file://node_modules/@babel/code-frame/LICENSE;md5=b1d0cd283a346e919abb3beeb018279d \
-                    
-file://node_modules/@babel/helper-validator-identifier/LICENSE;md5=b1d0cd283a346e919abb3beeb018279d \
+                    file://node_modules/@babel/helper-validator-identifier/LICENSE;md5=b1d0cd283a346e919abb3beeb018279d \
                     file://node_modules/@babel/highlight/LICENSE;md5=b1d0cd283a346e919abb3beeb018279d \
                     file://node_modules/@dabh/diagnostics/LICENSE;md5=c306c558012a48012189a646e0635014 \
                     file://node_modules/@jest/console/LICENSE;md5=901f6cd9846257b3a9c69dbd0a49caf1 \
-                    
-file://node_modules/@jest/console/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/@jest/console/node_modules/chalk/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/@jest/console/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
-                    
-file://node_modules/@jest/console/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
-                    
-file://node_modules/@jest/console/node_modules/has-flag/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/@jest/console/node_modules/supports-color/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/@jest/console/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/@jest/console/node_modules/chalk/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/@jest/console/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
+                    file://node_modules/@jest/console/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
+                    file://node_modules/@jest/console/node_modules/has-flag/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/@jest/console/node_modules/supports-color/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
                     file://node_modules/@jest/types/LICENSE;md5=901f6cd9846257b3a9c69dbd0a49caf1 \
-                    
-file://node_modules/@jest/types/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    file://node_modules/@jest/types/node_modules/chalk/license;md5=915042b5df33c31a6db2b37eadaa00e3 
-\
-                    
-file://node_modules/@jest/types/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
-                    
-file://node_modules/@jest/types/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
-                    
-file://node_modules/@jest/types/node_modules/has-flag/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/@jest/types/node_modules/supports-color/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/@jest/types/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/@jest/types/node_modules/chalk/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/@jest/types/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
+                    file://node_modules/@jest/types/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
+                    file://node_modules/@jest/types/node_modules/has-flag/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/@jest/types/node_modules/supports-color/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
                     file://node_modules/@types/istanbul-lib-coverage/LICENSE;md5=d4a904ca135bb7bc912156fee12726f0 \
                     file://node_modules/@types/istanbul-lib-report/LICENSE;md5=27e94c0280987ab296b0b8dd02ab9fe5 \
                     file://node_modules/@types/istanbul-reports/LICENSE;md5=d4a904ca135bb7bc912156fee12726f0 \
@@ -150,11 +141,9 @@ file://node_modules/@jest/types/node_modules/supports-color/license;md5=915042b5
                     file://node_modules/aproba/LICENSE;md5=9d215c9223fbef14a4642cc450e7ed4b \
                     file://node_modules/archiver/LICENSE;md5=6de886fe021f2668e514b5d0e5629e58 \
                     file://node_modules/archiver-utils/LICENSE;md5=6a2fbc0984e7bbc2c40dd7f8f4c90906 \
-                    
-file://node_modules/archiver-utils/node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
+                    file://node_modules/archiver-utils/node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
                     file://node_modules/are-we-there-yet/LICENSE;md5=039a23da29f56411e6d75d7b7bc9de13 \
-                    
-file://node_modules/are-we-there-yet/node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
+                    file://node_modules/are-we-there-yet/node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
                     file://node_modules/array-flatten/LICENSE;md5=44088ba57cb871a58add36ce51b8de08 \
                     file://node_modules/asn1/LICENSE;md5=5ce2f42143c298495637e28e40cd5462 \
                     file://node_modules/asn1.js/LICENSE;md5=e138bc0437c8b9e25b6609acbfc2f2ac \
@@ -174,15 +163,12 @@ file://node_modules/are-we-there-yet/node_modules/readable-stream/LICENSE;md5=a6
                     file://node_modules/block-stream/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/bluebird/LICENSE;md5=5dd221993f51ba714ddd208ff3b2ed01 \
                     file://node_modules/body-parser/LICENSE;md5=0afd201e48c7d095454eed4ac1184e40 \
-                    file://node_modules/body-parser/node_modules/debug/LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99 
-\
-                    file://node_modules/body-parser/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 
-\
+                    file://node_modules/body-parser/node_modules/debug/LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99 \
+                    file://node_modules/body-parser/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/brace-expansion/LICENSE;md5=a5df515ef062cc3affd8c0ae59c059ec \
                     file://node_modules/buffer/LICENSE;md5=e49e579dbcc02cf1f699deec85fd96f0 \
                     file://node_modules/buffer-crc32/LICENSE;md5=b27a845c0955487ec9ca7b4ff7295b2b \
-                    file://node_modules/buffer-equal-constant-time/LICENSE.txt;md5=effafd1e58e518742380952debd9b819 
-\
+                    file://node_modules/buffer-equal-constant-time/LICENSE.txt;md5=effafd1e58e518742380952debd9b819 \
                     file://node_modules/busboy/LICENSE;md5=df3ad145c2acbfc4f246fa834a6675c7 \
                     file://node_modules/bytes/LICENSE;md5=013e95467eddb048f19a6f5b42820f86 \
                     file://node_modules/callsites/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
@@ -201,12 +187,9 @@ file://node_modules/are-we-there-yet/node_modules/readable-stream/LICENSE;md5=a6
                     file://node_modules/compress-commons/LICENSE;md5=51478cb9e7ab40d3d3616c3794ded96b \
                     file://node_modules/compressible/LICENSE;md5=ba0b78039307836d62c2c53de4218eb2 \
                     file://node_modules/compression/LICENSE;md5=0afd201e48c7d095454eed4ac1184e40 \
-                    file://node_modules/compression/node_modules/bytes/LICENSE;md5=013e95467eddb048f19a6f5b42820f86 
-\
-                    file://node_modules/compression/node_modules/debug/LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99 
-\
-                    file://node_modules/compression/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 
-\
+                    file://node_modules/compression/node_modules/bytes/LICENSE;md5=013e95467eddb048f19a6f5b42820f86 \
+                    file://node_modules/compression/node_modules/debug/LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99 \
+                    file://node_modules/compression/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/concat-map/LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
                     file://node_modules/config/LICENSE;md5=bbda7dda495c6a1d2f2e4aae9ba17115 \
                     file://node_modules/console-control-strings/LICENSE;md5=43abbc6f9093aea69560715033788727 \
@@ -244,8 +227,7 @@ file://node_modules/are-we-there-yet/node_modules/readable-stream/LICENSE;md5=a6
                     file://node_modules/express/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/express-fileupload/LICENSE;md5=6c7e8d308b6178868ab5bf9a80e4a5ae \
                     file://node_modules/express-handlebars/LICENSE;md5=f4bf044f76c49f1141283dc9be4ed382 \
-                    
-file://node_modules/express-handlebars/node_modules/graceful-fs/LICENSE;md5=fd63805fd8e3797063b247781e5ee6e4 \
+                    file://node_modules/express-handlebars/node_modules/graceful-fs/LICENSE;md5=fd63805fd8e3797063b247781e5ee6e4 \
                     file://node_modules/express-rate-limit/LICENSE;md5=d70516464ac6f67736e5d4d81b015d27 \
                     file://node_modules/express-ws/LICENSE;md5=3a133f552782a1e694ed13c57356190d \
                     file://node_modules/express-ws/node_modules/ws/LICENSE;md5=95833e8f03687308b0584a377b9e12b0 \
@@ -257,10 +239,8 @@ file://node_modules/express-handlebars/node_modules/graceful-fs/LICENSE;md5=fd63
                     file://node_modules/fecha/LICENSE;md5=f4f83e94071a71d564921579ec889591 \
                     file://node_modules/file-uri-to-path/LICENSE;md5=9513dc0b97137379cfabc81b60889174 \
                     file://node_modules/finalhandler/LICENSE;md5=b506956e5cbfbe0d04f8a5c40107ec89 \
-                    file://node_modules/finalhandler/node_modules/debug/LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99 
-\
-                    file://node_modules/finalhandler/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 
-\
+                    file://node_modules/finalhandler/node_modules/debug/LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99 \
+                    file://node_modules/finalhandler/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/find/LICENSE;md5=38895c72a816781304e33d02980fef96 \
                     file://node_modules/fn.name/LICENSE;md5=d9584417fe22ac64739ce9eb464ef34c \
                     file://node_modules/follow-redirects/LICENSE;md5=2913574e921aefe1275cd5864b4f9b66 \
@@ -282,15 +262,12 @@ file://node_modules/express-handlebars/node_modules/graceful-fs/LICENSE;md5=fd63
                     file://node_modules/handlebars/LICENSE;md5=99f14a0ee149e3c9d7b9a335d73c908f \
                     file://node_modules/har-schema/LICENSE;md5=bfa81591facc9224e4c7451c8dc12958 \
                     file://node_modules/har-validator/LICENSE;md5=6f7daec5e5143ffeb21745646b425ab2 \
-                    file://node_modules/har-validator/node_modules/ajv/LICENSE;md5=4973982316cdc12e988b814af2813df7 
-\
-                    
-file://node_modules/har-validator/node_modules/json-schema-traverse/LICENSE;md5=ea87ade09b9e6da4f2e47904a4ee137b \
+                    file://node_modules/har-validator/node_modules/ajv/LICENSE;md5=4973982316cdc12e988b814af2813df7 \
+                    file://node_modules/har-validator/node_modules/json-schema-traverse/LICENSE;md5=ea87ade09b9e6da4f2e47904a4ee137b \
                     file://node_modules/has-flag/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
                     file://node_modules/has-unicode/LICENSE;md5=2bab5b1c26e9c44fc4e489bb98cfb196 \
                     file://node_modules/http-errors/LICENSE;md5=607209623abfcc77b9098f71a0ef52f9 \
-                    
-file://node_modules/http-errors/node_modules/inherits/LICENSE;md5=5b2ef2247af6d355ae9d9f988092d470 \
+                    file://node_modules/http-errors/node_modules/inherits/LICENSE;md5=5b2ef2247af6d355ae9d9f988092d470 \
                     file://node_modules/http-proxy/LICENSE;md5=764f642d46a24a68a7ef5e320b0a9a69 \
                     file://node_modules/http-signature/LICENSE;md5=38ecf0a3a3894f404ca99c2a08924afc \
                     file://node_modules/iconv-lite/LICENSE;md5=f942263d98f0d75e0e0101884e86261d \
@@ -309,64 +286,42 @@ file://node_modules/http-errors/node_modules/inherits/LICENSE;md5=5b2ef2247af6d3
                     file://node_modules/isexe/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/isstream/LICENSE.md;md5=1798150b9d70250c42b55b3530e6af2b \
                     file://node_modules/jest-message-util/LICENSE;md5=901f6cd9846257b3a9c69dbd0a49caf1 \
-                    
-file://node_modules/jest-message-util/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/jest-message-util/node_modules/braces/LICENSE;md5=ccdc0959f67943eb090f7e7c299621af \
-                    
-file://node_modules/jest-message-util/node_modules/chalk/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/jest-message-util/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
-                    
-file://node_modules/jest-message-util/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
-                    
-file://node_modules/jest-message-util/node_modules/fill-range/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
-                    
-file://node_modules/jest-message-util/node_modules/has-flag/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/jest-message-util/node_modules/is-number/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
-                    
-file://node_modules/jest-message-util/node_modules/micromatch/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
-                    
-file://node_modules/jest-message-util/node_modules/supports-color/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/jest-message-util/node_modules/to-regex-range/LICENSE;md5=b561e0a423bedc9d9ca9c8c67d40abb9 \
+                    file://node_modules/jest-message-util/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/jest-message-util/node_modules/braces/LICENSE;md5=ccdc0959f67943eb090f7e7c299621af \
+                    file://node_modules/jest-message-util/node_modules/chalk/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/jest-message-util/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
+                    file://node_modules/jest-message-util/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
+                    file://node_modules/jest-message-util/node_modules/fill-range/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
+                    file://node_modules/jest-message-util/node_modules/has-flag/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/jest-message-util/node_modules/is-number/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
+                    file://node_modules/jest-message-util/node_modules/micromatch/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
+                    file://node_modules/jest-message-util/node_modules/supports-color/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/jest-message-util/node_modules/to-regex-range/LICENSE;md5=b561e0a423bedc9d9ca9c8c67d40abb9 \
                     file://node_modules/jest-util/LICENSE;md5=901f6cd9846257b3a9c69dbd0a49caf1 \
-                    
-file://node_modules/jest-util/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/jest-util/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
                     file://node_modules/jest-util/node_modules/braces/LICENSE;md5=ccdc0959f67943eb090f7e7c299621af \
                     file://node_modules/jest-util/node_modules/chalk/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/jest-util/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
-                    
-file://node_modules/jest-util/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
-                    
-file://node_modules/jest-util/node_modules/fill-range/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
-                    file://node_modules/jest-util/node_modules/has-flag/license;md5=915042b5df33c31a6db2b37eadaa00e3 
-\
-                    
-file://node_modules/jest-util/node_modules/is-number/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
-                    
-file://node_modules/jest-util/node_modules/micromatch/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
-                    
-file://node_modules/jest-util/node_modules/supports-color/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/jest-util/node_modules/to-regex-range/LICENSE;md5=b561e0a423bedc9d9ca9c8c67d40abb9 \
+                    file://node_modules/jest-util/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
+                    file://node_modules/jest-util/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
+                    file://node_modules/jest-util/node_modules/fill-range/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
+                    file://node_modules/jest-util/node_modules/has-flag/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/jest-util/node_modules/is-number/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
+                    file://node_modules/jest-util/node_modules/micromatch/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
+                    file://node_modules/jest-util/node_modules/supports-color/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/jest-util/node_modules/to-regex-range/LICENSE;md5=b561e0a423bedc9d9ca9c8c67d40abb9 \
                     file://node_modules/js-tokens/LICENSE;md5=1d63bea73a26ffaf5e964ce74d3b83a5 \
                     file://node_modules/jsbn/LICENSE;md5=c6ea389b6b52325149beeec27075c5ac \
                     file://node_modules/json-schema-traverse/LICENSE;md5=ea87ade09b9e6da4f2e47904a4ee137b \
                     file://node_modules/json-stringify-safe/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/json5/LICENSE.md;md5=d80f2808a405d641840b50a06f80e93c \
                     file://node_modules/jsonwebtoken/LICENSE;md5=c72fbd14008b582a9b8b9889460e8b31 \
-                    
-file://node_modules/jsonwebtoken/node_modules/semver/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
+                    file://node_modules/jsonwebtoken/node_modules/semver/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/jsprim/LICENSE;md5=bc3c23d98d7aa86bbf232058884e19b2 \
                     file://node_modules/jwa/LICENSE;md5=0d71cb15a801bf0e61cb2db5ba63dc6a \
                     file://node_modules/jws/LICENSE;md5=0d71cb15a801bf0e61cb2db5ba63dc6a \
                     file://node_modules/kuler/LICENSE;md5=07760fd1a905b41fefdc3763afb5dca5 \
                     file://node_modules/lazystream/LICENSE-MIT;md5=44d6d25a5dd108a624f4edf4c5e7c2a1 \
-                    
-file://node_modules/lazystream/node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
+                    file://node_modules/lazystream/node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
                     file://node_modules/lodash.defaults/LICENSE;md5=a3b2b7770df62392c164de4001b59f8f \
                     file://node_modules/lodash.difference/LICENSE;md5=a3b2b7770df62392c164de4001b59f8f \
                     file://node_modules/lodash.flatten/LICENSE;md5=a3b2b7770df62392c164de4001b59f8f \
@@ -380,8 +335,7 @@ file://node_modules/lazystream/node_modules/readable-stream/LICENSE;md5=a67a7926
                     file://node_modules/lodash.union/LICENSE;md5=a3b2b7770df62392c164de4001b59f8f \
                     file://node_modules/logform/LICENSE;md5=69464058e29d977cf9b282e9d8a749e8 \
                     file://node_modules/lru-cache/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
-                    file://node_modules/lru-cache/node_modules/yallist/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca 
-\
+                    file://node_modules/lru-cache/node_modules/yallist/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/media-typer/LICENSE;md5=c6e0ce1e688c5ff16db06b7259e9cd20 \
                     file://node_modules/merge-descriptors/LICENSE;md5=aaf57ba8c5c9bf256fea7e943991a81a \
                     file://node_modules/methods/LICENSE;md5=c16a7dd9f946172f07086576d135d9d3 \
@@ -415,14 +369,10 @@ file://node_modules/lazystream/node_modules/readable-stream/LICENSE;md5=a67a7926
                     file://node_modules/node-gyp/node_modules/which/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/node-gyp/gyp/LICENSE;md5=ab828cb8ce4c62ee82945a11247b6bbd \
                     file://node_modules/node-pre-gyp/LICENSE;md5=7e13c3cf883a44ebcc74a8f568c0f6fb \
-                    
-file://node_modules/node-pre-gyp/node_modules/mkdirp/LICENSE;md5=b2d989bc186e7f6b418a5fdd5cc0b56b \
-                    file://node_modules/node-pre-gyp/node_modules/nopt/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca 
-\
-                    
-file://node_modules/node-pre-gyp/node_modules/rimraf/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
-                    
-file://node_modules/node-pre-gyp/node_modules/semver/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
+                    file://node_modules/node-pre-gyp/node_modules/mkdirp/LICENSE;md5=b2d989bc186e7f6b418a5fdd5cc0b56b \
+                    file://node_modules/node-pre-gyp/node_modules/nopt/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
+                    file://node_modules/node-pre-gyp/node_modules/rimraf/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
+                    file://node_modules/node-pre-gyp/node_modules/semver/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/node-pre-gyp/node_modules/tar/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/nopt/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/normalize-path/LICENSE;md5=ccdc0959f67943eb090f7e7c299621af \
@@ -447,14 +397,10 @@ file://node_modules/node-pre-gyp/node_modules/semver/LICENSE;md5=82703a69f6d7411
                     file://node_modules/performance-now/license.txt;md5=a07ae1b6dc33215d89a1281ee71c863c \
                     file://node_modules/picomatch/LICENSE;md5=abd0e25891525eb13d5a794f550a6ee4 \
                     file://node_modules/pretty-format/LICENSE;md5=901f6cd9846257b3a9c69dbd0a49caf1 \
-                    
-file://node_modules/pretty-format/node_modules/ansi-regex/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/pretty-format/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
-                    
-file://node_modules/pretty-format/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
-                    
-file://node_modules/pretty-format/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
+                    file://node_modules/pretty-format/node_modules/ansi-regex/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/pretty-format/node_modules/ansi-styles/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/pretty-format/node_modules/color-convert/LICENSE;md5=9bdadfc9fbb3ab8d5a6d591bdbd52811 \
+                    file://node_modules/pretty-format/node_modules/color-name/LICENSE;md5=d301869b39e08b33665b7c4f16b8e41d \
                     file://node_modules/printj/LICENSE;md5=603da8c86614f63539f44d25b3a96b1c \
                     file://node_modules/printj/dist/LICENSE;md5=603da8c86614f63539f44d25b3a96b1c \
                     file://node_modules/process-nextick-args/license.md;md5=216769dac98a78ec088ee7cc6fad1dfa \
@@ -472,11 +418,9 @@ file://node_modules/pretty-format/node_modules/color-name/LICENSE;md5=d301869b39
                     file://node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
                     file://node_modules/readdir-glob/LICENSE;md5=1b68cff15294bac8380a9df9ab8fa90e \
                     file://node_modules/request/LICENSE;md5=f3f8ead5440d1c311b45be065d135d90 \
-                    file://node_modules/request/node_modules/form-data/License;md5=7aa505292e2636a9e59d4d3f258f4819 
-\
+                    file://node_modules/request/node_modules/form-data/License;md5=7aa505292e2636a9e59d4d3f258f4819 \
                     file://node_modules/request/node_modules/qs/LICENSE;md5=d5c7c6dc45a33a0a9620ed81315672d7 \
-                    
-file://node_modules/request/node_modules/tough-cookie/LICENSE;md5=7189377a5215f1211b70cf2b9754841e \
+                    file://node_modules/request/node_modules/tough-cookie/LICENSE;md5=7189377a5215f1211b70cf2b9754841e \
                     file://node_modules/request/node_modules/uuid/LICENSE.md;md5=c9420736e23afb538ba5fbe44197f0b4 \
                     file://node_modules/require-from-string/license;md5=be72c3ad86c1c4e9578a1945b082b17d \
                     file://node_modules/requires-port/LICENSE;md5=4310a14e1d911cc6e4b5a34dbcbeaddd \
@@ -488,8 +432,7 @@ file://node_modules/request/node_modules/tough-cookie/LICENSE;md5=7189377a5215f1
                     file://node_modules/semver/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/send/LICENSE;md5=df2b0938eba0709b77ac937e2d552b7a \
                     file://node_modules/send/node_modules/debug/LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99 \
-                    
-file://node_modules/send/node_modules/debug/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
+                    file://node_modules/send/node_modules/debug/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/send/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/serve-static/LICENSE;md5=27b1707520b14d0bc890f4e75cd387b0 \
                     file://node_modules/set-blocking/LICENSE.txt;md5=8fd106383180f7bbb8f534414fdf7d35 \
@@ -503,8 +446,7 @@ file://node_modules/send/node_modules/debug/node_modules/ms/license.md;md5=fd56f
                     file://node_modules/sshpk/LICENSE;md5=38ecf0a3a3894f404ca99c2a08924afc \
                     file://node_modules/stack-trace/License;md5=9fbf93f7a763e64c0a30207b5693bf75 \
                     file://node_modules/stack-utils/license;md5=552ddb2d1f0113e2b206a1abb641e3ab \
-                    
-file://node_modules/stack-utils/node_modules/escape-string-regexp/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
+                    file://node_modules/stack-utils/node_modules/escape-string-regexp/license;md5=915042b5df33c31a6db2b37eadaa00e3 \
                     file://node_modules/statuses/LICENSE;md5=36e2bc837ce69a98cc33a9e140d457e5 \
                     file://node_modules/streamsearch/LICENSE;md5=df3ad145c2acbfc4f246fa834a6675c7 \
                     file://node_modules/string_decoder/LICENSE;md5=14af51f8c0a6c6e400b53e18c6e5f85c \
@@ -542,8 +484,7 @@ file://node_modules/stack-utils/node_modules/escape-string-regexp/license;md5=91
                     file://node_modules/winston/LICENSE;md5=124783bb03d1b801c23d11f07b62be0a \
                     file://node_modules/winston-daily-rotate-file/LICENSE;md5=1e426b0dc7b8970a20158014d244faac \
                     file://node_modules/winston-transport/LICENSE;md5=05a0729dc3291972c7b9e521a99a3c1f \
-                    
-file://node_modules/winston-transport/node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
+                    file://node_modules/winston-transport/node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
                     file://node_modules/wordwrap/LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
                     file://node_modules/wrappy/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/ws/LICENSE;md5=95833e8f03687308b0584a377b9e12b0 \
@@ -551,42 +492,27 @@ file://node_modules/winston-transport/node_modules/readable-stream/LICENSE;md5=a
                     file://node_modules/zip-stream/LICENSE;md5=51478cb9e7ab40d3d3616c3794ded96b \
                     file://package.json;md5=c7f126ca1569de81f5db9ad8287294c8 \
                     file://node_modules/@babel/code-frame/package.json;md5=5e2312af997edd97628f843af2a02843 \
-                    
-file://node_modules/@babel/helper-validator-identifier/package.json;md5=19012a1bb670c71efee0370edfd11ae1 \
+                    file://node_modules/@babel/helper-validator-identifier/package.json;md5=19012a1bb670c71efee0370edfd11ae1 \
                     file://node_modules/@babel/highlight/package.json;md5=da8cd3676c0980492806f06d1c98d79e \
                     file://node_modules/@dabh/diagnostics/package.json;md5=645ea576697798a17013dfa2a49ec9b0 \
                     file://node_modules/@fluent/bundle/package.json;md5=466bc80bca11acf4c2f3f9e777d1e089 \
                     file://node_modules/@fluent/dom/package.json;md5=ab2d6b0269012b53ab2dd1c2f4f30944 \
-                    
-file://node_modules/@jest/console/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
-                    
-file://node_modules/@jest/console/node_modules/chalk/package.json;md5=300316f2f886e93742252367296574eb \
-                    
-file://node_modules/@jest/console/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
-                    
-file://node_modules/@jest/console/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
-                    
-file://node_modules/@jest/console/node_modules/has-flag/package.json;md5=636dbe2c8d513ad850070def501122bf \
-                    
-file://node_modules/@jest/console/node_modules/supports-color/package.json;md5=9bd5f75e8324cc8e0b633c59f1c4b60b \
+                    file://node_modules/@jest/console/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
+                    file://node_modules/@jest/console/node_modules/chalk/package.json;md5=300316f2f886e93742252367296574eb \
+                    file://node_modules/@jest/console/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
+                    file://node_modules/@jest/console/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
+                    file://node_modules/@jest/console/node_modules/has-flag/package.json;md5=636dbe2c8d513ad850070def501122bf \
+                    file://node_modules/@jest/console/node_modules/supports-color/package.json;md5=9bd5f75e8324cc8e0b633c59f1c4b60b \
                     file://node_modules/@jest/console/package.json;md5=209aac1af36c408fcd2e86650dbdcdea \
-                    
-file://node_modules/@jest/types/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
-                    
-file://node_modules/@jest/types/node_modules/chalk/package.json;md5=300316f2f886e93742252367296574eb \
-                    
-file://node_modules/@jest/types/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
-                    
-file://node_modules/@jest/types/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
-                    
-file://node_modules/@jest/types/node_modules/has-flag/package.json;md5=636dbe2c8d513ad850070def501122bf \
-                    
-file://node_modules/@jest/types/node_modules/supports-color/package.json;md5=9bd5f75e8324cc8e0b633c59f1c4b60b \
+                    file://node_modules/@jest/types/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
+                    file://node_modules/@jest/types/node_modules/chalk/package.json;md5=300316f2f886e93742252367296574eb \
+                    file://node_modules/@jest/types/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
+                    file://node_modules/@jest/types/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
+                    file://node_modules/@jest/types/node_modules/has-flag/package.json;md5=636dbe2c8d513ad850070def501122bf \
+                    file://node_modules/@jest/types/node_modules/supports-color/package.json;md5=9bd5f75e8324cc8e0b633c59f1c4b60b \
                     file://node_modules/@jest/types/package.json;md5=3dc9bdfecba4d4c7292070e2d03e1d0f \
-                    
-file://node_modules/@types/istanbul-lib-coverage/package.json;md5=0068d8acf05dd01ceea5215851961374 \
-                    file://node_modules/@types/istanbul-lib-report/package.json;md5=07955ca9e16ce3f2597e559a31e4d008 
-\
+                    file://node_modules/@types/istanbul-lib-coverage/package.json;md5=0068d8acf05dd01ceea5215851961374 \
+                    file://node_modules/@types/istanbul-lib-report/package.json;md5=07955ca9e16ce3f2597e559a31e4d008 \
                     file://node_modules/@types/istanbul-reports/package.json;md5=50a79be68c600b6ae66ba6db04b4096c \
                     file://node_modules/@types/node/package.json;md5=bf12ba0538286913a4e3a72d88a2ce5c \
                     file://node_modules/@types/stack-utils/package.json;md5=aa9d2f7ffd62f43054bc1cc63acc9363 \
@@ -601,12 +527,9 @@ file://node_modules/@types/istanbul-lib-coverage/package.json;md5=0068d8acf05dd0
                     file://node_modules/ansi-styles/package.json;md5=50f97f15be9377b1110c7a68f76fff0f \
                     file://node_modules/aproba/package.json;md5=617442ed4770d06ac955969e7dcf7b98 \
                     file://node_modules/archiver/package.json;md5=b656d584f94d63b2a3e15ebeb6f72734 \
-                    
-file://node_modules/archiver-utils/node_modules/readable-stream/package.json;md5=55d646ab9e50735393b18c874d0bd5ab \
+                    file://node_modules/archiver-utils/node_modules/readable-stream/package.json;md5=55d646ab9e50735393b18c874d0bd5ab \
                     file://node_modules/archiver-utils/package.json;md5=beb18d962a706c28d94b1a8f7c143a9c \
-                    
-file://node_modules/are-we-there-yet/node_modules/readable-stream/package.json;md5=55d646ab9e50735393b18c874d0bd5ab 
-\
+                    file://node_modules/are-we-there-yet/node_modules/readable-stream/package.json;md5=55d646ab9e50735393b18c874d0bd5ab \
                     file://node_modules/are-we-there-yet/package.json;md5=386ebd73fb9d607ee175b947082764ef \
                     file://node_modules/array-flatten/package.json;md5=cb1aa7f817100a03395dd0163bf6ebe9 \
                     file://node_modules/asn1/package.json;md5=0c5153fa7dfd857870bc28c3bacf921d \
@@ -629,16 +552,13 @@ file://node_modules/are-we-there-yet/node_modules/readable-stream/package.json;m
                     file://node_modules/block-stream/package.json;md5=7b6a3c62899e98e27be3e9f68e778b91 \
                     file://node_modules/bluebird/package.json;md5=b553710e014be64b2dd8e8704279e93d \
                     file://node_modules/bn.js/package.json;md5=12cb21017598c83d4a5acdbd277f3499 \
-                    
-file://node_modules/body-parser/node_modules/debug/package.json;md5=71a7656944ffe50cc27ebe02491ae49b \
-                    
-file://node_modules/body-parser/node_modules/ms/package.json;md5=cbd55880a650b56c3d5acddbbdbee9bc \
+                    file://node_modules/body-parser/node_modules/debug/package.json;md5=71a7656944ffe50cc27ebe02491ae49b \
+                    file://node_modules/body-parser/node_modules/ms/package.json;md5=cbd55880a650b56c3d5acddbbdbee9bc \
                     file://node_modules/body-parser/package.json;md5=d733814bad2ae132f08ab3d55c77b6a8 \
                     file://node_modules/brace-expansion/package.json;md5=effd91994b1b7ddb8a33060ad4541e6a \
                     file://node_modules/buffer/package.json;md5=3220969a7bbdae1bc07082db98d43627 \
                     file://node_modules/buffer-crc32/package.json;md5=92a03a851f46c2053f1eda652d4d0193 \
-                    file://node_modules/buffer-equal-constant-time/package.json;md5=ec70058745250afbc7f41c2c982da8ea 
-\
+                    file://node_modules/buffer-equal-constant-time/package.json;md5=ec70058745250afbc7f41c2c982da8ea \
                     file://node_modules/busboy/package.json;md5=bdb1b8a88038476a60a1778aac1a39df \
                     file://node_modules/bytes/package.json;md5=bb3cba8a8a870732b7eee0d2e4e29955 \
                     file://node_modules/cached-iterable/package.json;md5=b5e999918fc6e4b8a9e69da1120236dc \
@@ -657,12 +577,9 @@ file://node_modules/body-parser/node_modules/ms/package.json;md5=cbd55880a650b56
                     file://node_modules/combined-stream/package.json;md5=089f95f5df2908028bdbbe545ad5c0e3 \
                     file://node_modules/compress-commons/package.json;md5=c78a15a84cfb9beddc1349043e49feae \
                     file://node_modules/compressible/package.json;md5=2173f7f51c8e806f8c5bc11cd00d8af5 \
-                    
-file://node_modules/compression/node_modules/bytes/package.json;md5=9e7bba10f4b0350726852fd24893878c \
-                    
-file://node_modules/compression/node_modules/debug/package.json;md5=71a7656944ffe50cc27ebe02491ae49b \
-                    
-file://node_modules/compression/node_modules/ms/package.json;md5=cbd55880a650b56c3d5acddbbdbee9bc \
+                    file://node_modules/compression/node_modules/bytes/package.json;md5=9e7bba10f4b0350726852fd24893878c \
+                    file://node_modules/compression/node_modules/debug/package.json;md5=71a7656944ffe50cc27ebe02491ae49b \
+                    file://node_modules/compression/node_modules/ms/package.json;md5=cbd55880a650b56c3d5acddbbdbee9bc \
                     file://node_modules/compression/package.json;md5=598d1a58c041798fca939a833973a4ea \
                     file://node_modules/concat-map/package.json;md5=85d8a674998927862b17adef4aa6a7b1 \
                     file://node_modules/config/package.json;md5=4f93a911f1cd85f6108aa982756707df \
@@ -696,31 +613,25 @@ file://node_modules/compression/node_modules/ms/package.json;md5=cbd55880a650b56
                     file://node_modules/etag/package.json;md5=fec91cc11e50ee734c65c2d703db3884 \
                     file://node_modules/eventemitter3/package.json;md5=37a5a3630ee54fc3fbab2baf08d7c53e \
                     file://node_modules/exit-on-epipe/package.json;md5=46f33817d087eaa748d59ef1a0d60086 \
-                    file://node_modules/express/node_modules/debug/package.json;md5=71a7656944ffe50cc27ebe02491ae49b 
-\
+                    file://node_modules/express/node_modules/debug/package.json;md5=71a7656944ffe50cc27ebe02491ae49b \
                     file://node_modules/express/node_modules/ms/package.json;md5=cbd55880a650b56c3d5acddbbdbee9bc \
                     file://node_modules/express/package.json;md5=bf6c1ca718319e619a9ebd41d5cbef6d \
                     file://node_modules/express-fileupload/package.json;md5=51d90041e60713bbe9375a1ddea53604 \
-                    
-file://node_modules/express-handlebars/node_modules/graceful-fs/package.json;md5=e6ed8ee5ea4fb97e55c3e6a02efbd294 \
+                    file://node_modules/express-handlebars/node_modules/graceful-fs/package.json;md5=e6ed8ee5ea4fb97e55c3e6a02efbd294 \
                     file://node_modules/express-handlebars/package.json;md5=1b9442013b1f2c77d44671ae9c805686 \
                     file://node_modules/express-rate-limit/package.json;md5=ecb4fbc900c0c610e045baca38926149 \
-                    file://node_modules/express-ws/node_modules/ws/package.json;md5=a1b3eac4b5c4b482498662b3ea9d9e12 
-\
+                    file://node_modules/express-ws/node_modules/ws/package.json;md5=a1b3eac4b5c4b482498662b3ea9d9e12 \
                     file://node_modules/express-ws/package.json;md5=a8aca956634e2c3de31b55c4f4b9b58a \
                     file://node_modules/extend/package.json;md5=5074ec873b4010df5203d20e73e65246 \
                     file://node_modules/extsprintf/package.json;md5=7c02b29c15d45f83ee155dc101993c76 \
                     file://node_modules/fast-deep-equal/package.json;md5=da1199afd6b2d7a1eaa9e30acd35f4e6 \
-                    file://node_modules/fast-json-stable-stringify/package.json;md5=903a31da36d2259011d342196a9b1265 
-\
+                    file://node_modules/fast-json-stable-stringify/package.json;md5=903a31da36d2259011d342196a9b1265 \
                     file://node_modules/fast-safe-stringify/package.json;md5=fa356d91f6a46ebd0cad8db8af5d2597 \
                     file://node_modules/fecha/package.json;md5=619c5bcad0b5f12baec2a472fdce60cf \
                     file://node_modules/file-stream-rotator/package.json;md5=c686d2c0988b658b962ba90a8e82a4b4 \
                     file://node_modules/file-uri-to-path/package.json;md5=65f30030f0e7b2eff552eaabd8bb1fe1 \
-                    
-file://node_modules/finalhandler/node_modules/debug/package.json;md5=71a7656944ffe50cc27ebe02491ae49b \
-                    
-file://node_modules/finalhandler/node_modules/ms/package.json;md5=cbd55880a650b56c3d5acddbbdbee9bc \
+                    file://node_modules/finalhandler/node_modules/debug/package.json;md5=71a7656944ffe50cc27ebe02491ae49b \
+                    file://node_modules/finalhandler/node_modules/ms/package.json;md5=cbd55880a650b56c3d5acddbbdbee9bc \
                     file://node_modules/finalhandler/package.json;md5=65618bd839fed72de71aea141e19e568 \
                     file://node_modules/find/package.json;md5=e12ded1a6c7c79bfaca16e63d4aa00a8 \
                     file://node_modules/fn.name/package.json;md5=eca907cd517111a73f4ad09dfde4b1de \
@@ -731,10 +642,8 @@ file://node_modules/finalhandler/node_modules/ms/package.json;md5=cbd55880a650b5
                     file://node_modules/fs-constants/package.json;md5=4e7713db1ace1f383b9f5b99e37c799b \
                     file://node_modules/fs-minipass/package.json;md5=8b4599fada2a56483e99b98b5348361a \
                     file://node_modules/fs.realpath/package.json;md5=3aa3d67ce378e330e293496dd3b9a506 \
-                    
-file://node_modules/fstream/node_modules/mkdirp/package.json;md5=3b5ba3c4a04a8b0520bd0d392cf1c48f \
-                    
-file://node_modules/fstream/node_modules/rimraf/package.json;md5=c69fc8897c842f559f37a4e02455e90a \
+                    file://node_modules/fstream/node_modules/mkdirp/package.json;md5=3b5ba3c4a04a8b0520bd0d392cf1c48f \
+                    file://node_modules/fstream/node_modules/rimraf/package.json;md5=c69fc8897c842f559f37a4e02455e90a \
                     file://node_modules/fstream/package.json;md5=b3f1aaa7913ab33da3fa06812782bfd7 \
                     file://node_modules/gateway-addon/package.json;md5=20275b010c708c007b99888c117f1450 \
                     file://node_modules/gauge/package.json;md5=ea229b587fee704faaf9431b96678324 \
@@ -744,17 +653,13 @@ file://node_modules/fstream/node_modules/rimraf/package.json;md5=c69fc8897c842f5
                     file://node_modules/graceful-fs/package.json;md5=b31cf400f270df9d7173307ac050e826 \
                     file://node_modules/handlebars/package.json;md5=b3020bbac6402603504ff73f2cf49f41 \
                     file://node_modules/har-schema/package.json;md5=54d2c0fffb398fed596e246ee7a19829 \
-                    
-file://node_modules/har-validator/node_modules/ajv/package.json;md5=bc185fb380e6969e7ae607dde40bc9c3 \
-                    
-file://node_modules/har-validator/node_modules/json-schema-traverse/package.json;md5=e706b186146b3f00005442861f98c091 
-\
+                    file://node_modules/har-validator/node_modules/ajv/package.json;md5=bc185fb380e6969e7ae607dde40bc9c3 \
+                    file://node_modules/har-validator/node_modules/json-schema-traverse/package.json;md5=e706b186146b3f00005442861f98c091 \
                     file://node_modules/har-validator/package.json;md5=ed1b063932b04bc4dde19bd9293415de \
                     file://node_modules/has-flag/package.json;md5=73cc8d1e96c19ce85a7abb8f9468a86c \
                     file://node_modules/has-unicode/package.json;md5=f14043c8a5d6df10d3671d83073d6883 \
                     file://node_modules/http_ece/package.json;md5=df0b5fec0eb72763dbe5f9710e95d002 \
-                    
-file://node_modules/http-errors/node_modules/inherits/package.json;md5=74b2e77f5c27cdb14784f7f2512a1918 \
+                    file://node_modules/http-errors/node_modules/inherits/package.json;md5=74b2e77f5c27cdb14784f7f2512a1918 \
                     file://node_modules/http-errors/package.json;md5=18637d36709871c643fdd58b14332bf3 \
                     file://node_modules/http-proxy/package.json;md5=a65a0f1926ffbacf791a50d26ee2b718 \
                     file://node_modules/http-signature/package.json;md5=72db3ad4de36b5604debdf9e7bb78ff9 \
@@ -775,53 +680,29 @@ file://node_modules/http-errors/node_modules/inherits/package.json;md5=74b2e77f5
                     file://node_modules/isarray/package.json;md5=a490f11007b2cc9d19c4a250592c2e71 \
                     file://node_modules/isexe/package.json;md5=b7340828ee0e123814f9b855953de714 \
                     file://node_modules/isstream/package.json;md5=2c74d78c5b8e181e78e90b9a3e2fd0e0 \
-                    
-file://node_modules/jest-message-util/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
-                    
-file://node_modules/jest-message-util/node_modules/braces/package.json;md5=c92c38c5b1f115ca8c5e303328be6309 \
-                    
-file://node_modules/jest-message-util/node_modules/chalk/package.json;md5=300316f2f886e93742252367296574eb \
-                    
-file://node_modules/jest-message-util/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
-                    
-file://node_modules/jest-message-util/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
-                    
-file://node_modules/jest-message-util/node_modules/fill-range/package.json;md5=8943ae39664d5980b96ba476c006dd77 \
-                    
-file://node_modules/jest-message-util/node_modules/has-flag/package.json;md5=636dbe2c8d513ad850070def501122bf \
-                    
-file://node_modules/jest-message-util/node_modules/is-number/package.json;md5=41b5221636f534d987259e37635e1dd6 \
-                    
-file://node_modules/jest-message-util/node_modules/micromatch/package.json;md5=78af05f6feafec13f6de437ce6ebf254 \
-                    
-file://node_modules/jest-message-util/node_modules/supports-color/package.json;md5=9bd5f75e8324cc8e0b633c59f1c4b60b 
-\
-                    
-file://node_modules/jest-message-util/node_modules/to-regex-range/package.json;md5=31ccdd7dc49cec37d8982159ba163275 
-\
+                    file://node_modules/jest-message-util/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
+                    file://node_modules/jest-message-util/node_modules/braces/package.json;md5=c92c38c5b1f115ca8c5e303328be6309 \
+                    file://node_modules/jest-message-util/node_modules/chalk/package.json;md5=300316f2f886e93742252367296574eb \
+                    file://node_modules/jest-message-util/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
+                    file://node_modules/jest-message-util/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
+                    file://node_modules/jest-message-util/node_modules/fill-range/package.json;md5=8943ae39664d5980b96ba476c006dd77 \
+                    file://node_modules/jest-message-util/node_modules/has-flag/package.json;md5=636dbe2c8d513ad850070def501122bf \
+                    file://node_modules/jest-message-util/node_modules/is-number/package.json;md5=41b5221636f534d987259e37635e1dd6 \
+                    file://node_modules/jest-message-util/node_modules/micromatch/package.json;md5=78af05f6feafec13f6de437ce6ebf254 \
+                    file://node_modules/jest-message-util/node_modules/supports-color/package.json;md5=9bd5f75e8324cc8e0b633c59f1c4b60b \
+                    file://node_modules/jest-message-util/node_modules/to-regex-range/package.json;md5=31ccdd7dc49cec37d8982159ba163275 \
                     file://node_modules/jest-message-util/package.json;md5=678f365522b907ef14bbfae65fbb459e \
-                    
-file://node_modules/jest-util/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
-                    
-file://node_modules/jest-util/node_modules/braces/package.json;md5=c92c38c5b1f115ca8c5e303328be6309 \
-                    
-file://node_modules/jest-util/node_modules/chalk/package.json;md5=300316f2f886e93742252367296574eb \
-                    
-file://node_modules/jest-util/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
-                    
-file://node_modules/jest-util/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
-                    
-file://node_modules/jest-util/node_modules/fill-range/package.json;md5=8943ae39664d5980b96ba476c006dd77 \
-                    
-file://node_modules/jest-util/node_modules/has-flag/package.json;md5=636dbe2c8d513ad850070def501122bf \
-                    
-file://node_modules/jest-util/node_modules/is-number/package.json;md5=41b5221636f534d987259e37635e1dd6 \
-                    
-file://node_modules/jest-util/node_modules/micromatch/package.json;md5=78af05f6feafec13f6de437ce6ebf254 \
-                    
-file://node_modules/jest-util/node_modules/supports-color/package.json;md5=9bd5f75e8324cc8e0b633c59f1c4b60b \
-                    
-file://node_modules/jest-util/node_modules/to-regex-range/package.json;md5=31ccdd7dc49cec37d8982159ba163275 \
+                    file://node_modules/jest-util/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
+                    file://node_modules/jest-util/node_modules/braces/package.json;md5=c92c38c5b1f115ca8c5e303328be6309 \
+                    file://node_modules/jest-util/node_modules/chalk/package.json;md5=300316f2f886e93742252367296574eb \
+                    file://node_modules/jest-util/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
+                    file://node_modules/jest-util/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
+                    file://node_modules/jest-util/node_modules/fill-range/package.json;md5=8943ae39664d5980b96ba476c006dd77 \
+                    file://node_modules/jest-util/node_modules/has-flag/package.json;md5=636dbe2c8d513ad850070def501122bf \
+                    file://node_modules/jest-util/node_modules/is-number/package.json;md5=41b5221636f534d987259e37635e1dd6 \
+                    file://node_modules/jest-util/node_modules/micromatch/package.json;md5=78af05f6feafec13f6de437ce6ebf254 \
+                    file://node_modules/jest-util/node_modules/supports-color/package.json;md5=9bd5f75e8324cc8e0b633c59f1c4b60b \
+                    file://node_modules/jest-util/node_modules/to-regex-range/package.json;md5=31ccdd7dc49cec37d8982159ba163275 \
                     file://node_modules/jest-util/package.json;md5=ac51fe097bb8a2f5a3ea6da8981e4792 \
                     file://node_modules/js-tokens/package.json;md5=022ec03d76e85da58a8ad1134290dfdf \
                     file://node_modules/jsbn/package.json;md5=a10cd005c4727beb0ca9b4f9fb37b441 \
@@ -829,15 +710,13 @@ file://node_modules/jest-util/node_modules/to-regex-range/package.json;md5=31ccd
                     file://node_modules/json-schema-traverse/package.json;md5=dcdda7e5bfd069db9eb37f3e1db806a7 \
                     file://node_modules/json-stringify-safe/package.json;md5=184d1a71034cb154ad7d1abf0e64e3a0 \
                     file://node_modules/json5/package.json;md5=c3c6a43ea9349efac3c8024f34884207 \
-                    
-file://node_modules/jsonwebtoken/node_modules/semver/package.json;md5=735f6ede2a644d292066a9813d8b9da6 \
+                    file://node_modules/jsonwebtoken/node_modules/semver/package.json;md5=735f6ede2a644d292066a9813d8b9da6 \
                     file://node_modules/jsonwebtoken/package.json;md5=27131efbc22dd9d60ef475603788a63e \
                     file://node_modules/jsprim/package.json;md5=9e330579d00de959cda1726ea6aa37ef \
                     file://node_modules/jwa/package.json;md5=00e2afefa27a42fa7b224047eda0a256 \
                     file://node_modules/jws/package.json;md5=075bacb983d06d28c5fe2f9b39407747 \
                     file://node_modules/kuler/package.json;md5=97efa0f5b0bbbcd07f58897d57d80dec \
-                    
-file://node_modules/lazystream/node_modules/readable-stream/package.json;md5=55d646ab9e50735393b18c874d0bd5ab \
+                    file://node_modules/lazystream/node_modules/readable-stream/package.json;md5=55d646ab9e50735393b18c874d0bd5ab \
                     file://node_modules/lazystream/package.json;md5=c4cc72d0e792e3ec3181c30cbbd20514 \
                     file://node_modules/lodash.defaults/package.json;md5=1a3537c1a0ac525c4ace038a2143e827 \
                     file://node_modules/lodash.difference/package.json;md5=15c7e81fc09ef78bad68b445df455e29 \
@@ -851,8 +730,7 @@ file://node_modules/lazystream/node_modules/readable-stream/package.json;md5=55d
                     file://node_modules/lodash.once/package.json;md5=a905be0ff2f3ba0b83d5d03a95490e34 \
                     file://node_modules/lodash.union/package.json;md5=fc8dddd3819dbbec34bcc27bf5fe4e40 \
                     file://node_modules/logform/package.json;md5=eaf8540c244b5c77be79076506958b4c \
-                    
-file://node_modules/lru-cache/node_modules/yallist/package.json;md5=b15d27bf2cf04083fef9389ce68aa620 \
+                    file://node_modules/lru-cache/node_modules/yallist/package.json;md5=b15d27bf2cf04083fef9389ce68aa620 \
                     file://node_modules/lru-cache/package.json;md5=5facce3b29b46c909e27bd642d950a3f \
                     file://node_modules/media-typer/package.json;md5=127ce4abeb265c6eef7b45540241ca91 \
                     file://node_modules/merge-descriptors/package.json;md5=570e06d8ce0167e07a32ba70fdd56795 \
@@ -870,8 +748,7 @@ file://node_modules/lru-cache/node_modules/yallist/package.json;md5=b15d27bf2cf0
                     file://node_modules/ms/package.json;md5=b3ea7267a23f72028e774742792b114a \
                     file://node_modules/nan/package.json;md5=3cfe1e5a98bb9fe54ff73d4aef6df453 \
                     file://node_modules/ncp/package.json;md5=088da46a36f3903be1b3007aaa401e7e \
-                    file://node_modules/needle/node_modules/debug/package.json;md5=428aa7fa2bd4f273e5226f0c3c6ab6de 
-\
+                    file://node_modules/needle/node_modules/debug/package.json;md5=428aa7fa2bd4f273e5226f0c3c6ab6de \
                     file://node_modules/needle/package.json;md5=d9d0156d0e2dc5d8471e1e286765b913 \
                     file://node_modules/negotiator/package.json;md5=f532dffa79bfce9737c04201d64b5160 \
                     file://node_modules/neo-async/package.json;md5=93ff8db694cf72f4c7cb3aa6cab720e3 \
@@ -880,33 +757,22 @@ file://node_modules/lru-cache/node_modules/yallist/package.json;md5=b15d27bf2cf0
                     file://node_modules/node-fetch/package.json;md5=46f12e9c0fffbd7cdaa7a2e91494d27d \
                     file://node_modules/node-forge/package.json;md5=1e0406b8aa8449a4882a57c987a8c9e2 \
                     file://node_modules/node-getopt/package.json;md5=a9881f1afd345dac46487dbb32cd605c \
-                    
-file://node_modules/node-gyp/node_modules/mkdirp/package.json;md5=3b5ba3c4a04a8b0520bd0d392cf1c48f \
-                    
-file://node_modules/node-gyp/node_modules/rimraf/package.json;md5=c69fc8897c842f559f37a4e02455e90a \
-                    
-file://node_modules/node-gyp/node_modules/semver/package.json;md5=332793fc37ed92b7e36a256af9ba52ff \
-                    file://node_modules/node-gyp/node_modules/tar/package.json;md5=d278ace652e28c583057153733d77899 
-\
-                    
-file://node_modules/node-gyp/node_modules/which/package.json;md5=9db3fcd8026f288ba3aaad83200f5a35 \
+                    file://node_modules/node-gyp/node_modules/mkdirp/package.json;md5=3b5ba3c4a04a8b0520bd0d392cf1c48f \
+                    file://node_modules/node-gyp/node_modules/rimraf/package.json;md5=c69fc8897c842f559f37a4e02455e90a \
+                    file://node_modules/node-gyp/node_modules/semver/package.json;md5=332793fc37ed92b7e36a256af9ba52ff \
+                    file://node_modules/node-gyp/node_modules/tar/package.json;md5=d278ace652e28c583057153733d77899 \
+                    file://node_modules/node-gyp/node_modules/which/package.json;md5=9db3fcd8026f288ba3aaad83200f5a35 \
                     file://node_modules/node-gyp/package.json;md5=bf0ec04fbefe4b858131d2c488ed5c5f \
-                    
-file://node_modules/node-pre-gyp/node_modules/mkdirp/package.json;md5=3b5ba3c4a04a8b0520bd0d392cf1c48f \
-                    
-file://node_modules/node-pre-gyp/node_modules/nopt/package.json;md5=5192f3f2450d866a1118c12915c38e37 \
-                    
-file://node_modules/node-pre-gyp/node_modules/rimraf/package.json;md5=c69fc8897c842f559f37a4e02455e90a \
-                    
-file://node_modules/node-pre-gyp/node_modules/semver/package.json;md5=735f6ede2a644d292066a9813d8b9da6 \
-                    
-file://node_modules/node-pre-gyp/node_modules/tar/package.json;md5=352cdff8134633616c3ed6e32e7e9cf4 \
+                    file://node_modules/node-pre-gyp/node_modules/mkdirp/package.json;md5=3b5ba3c4a04a8b0520bd0d392cf1c48f \
+                    file://node_modules/node-pre-gyp/node_modules/nopt/package.json;md5=5192f3f2450d866a1118c12915c38e37 \
+                    file://node_modules/node-pre-gyp/node_modules/rimraf/package.json;md5=c69fc8897c842f559f37a4e02455e90a \
+                    file://node_modules/node-pre-gyp/node_modules/semver/package.json;md5=735f6ede2a644d292066a9813d8b9da6 \
+                    file://node_modules/node-pre-gyp/node_modules/tar/package.json;md5=352cdff8134633616c3ed6e32e7e9cf4 \
                     file://node_modules/node-pre-gyp/package.json;md5=2b9597f2ec85aa9bfb68c190fa922713 \
                     file://node_modules/nopt/package.json;md5=41ca7dc9f7e8f92e9acc64e258ff3dbb \
                     file://node_modules/normalize-path/package.json;md5=8a437fdddf8bae5cce39556e3f830975 \
                     file://node_modules/npm-bundled/package.json;md5=c2498bcf2e7ad506ecb8302187285ebc \
-                    file://node_modules/npm-normalize-package-bin/package.json;md5=8beb5d87634212035f1a5fe378e22fe4 
-\
+                    file://node_modules/npm-normalize-package-bin/package.json;md5=8beb5d87634212035f1a5fe378e22fe4 \
                     file://node_modules/npm-packlist/package.json;md5=ab91377f5b194a17b33fb4ea03e5705c \
                     file://node_modules/npmlog/package.json;md5=5052e259f267dea1afa387baced17891 \
                     file://node_modules/number-is-nan/package.json;md5=2b5b5a279c98be57ebafdaa605a14584 \
@@ -925,14 +791,10 @@ file://node_modules/node-pre-gyp/node_modules/tar/package.json;md5=352cdff813463
                     file://node_modules/path-to-regexp/package.json;md5=19e58964462995e183c1cd8147a9b8a1 \
                     file://node_modules/performance-now/package.json;md5=ffd06b287f3c72ca8ca1abcdf43aab53 \
                     file://node_modules/picomatch/package.json;md5=7cdaee3083734e8c74f830b59140ca2f \
-                    
-file://node_modules/pretty-format/node_modules/ansi-regex/package.json;md5=4ef3224a1d5ee3f0768bc26d95d38b26 \
-                    
-file://node_modules/pretty-format/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
-                    
-file://node_modules/pretty-format/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
-                    
-file://node_modules/pretty-format/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
+                    file://node_modules/pretty-format/node_modules/ansi-regex/package.json;md5=4ef3224a1d5ee3f0768bc26d95d38b26 \
+                    file://node_modules/pretty-format/node_modules/ansi-styles/package.json;md5=ab7a71ab9f6b46acda83106c5f34e6e3 \
+                    file://node_modules/pretty-format/node_modules/color-convert/package.json;md5=370b0177fdb4368f0a688ffa48559ecf \
+                    file://node_modules/pretty-format/node_modules/color-name/package.json;md5=ef649e8b7be42bba6d4fa34aca7e126a \
                     file://node_modules/pretty-format/package.json;md5=6c67ebf296279a931746bc8953f53e42 \
                     file://node_modules/printj/package.json;md5=1e5231dafdf82f85f46989a53f52b960 \
                     file://node_modules/process-nextick-args/package.json;md5=6bd1fff965ff97b4aff54e6b4e382ed0 \
@@ -947,13 +809,10 @@ file://node_modules/pretty-format/node_modules/color-name/package.json;md5=ef649
                     file://node_modules/react-is/package.json;md5=0cede8d60c2b68a6394694f1efa85552 \
                     file://node_modules/readable-stream/package.json;md5=3304d7c65a4909be72be1ee604ca8915 \
                     file://node_modules/readdir-glob/package.json;md5=952379a8f52c2aeaea663d320a03a13c \
-                    
-file://node_modules/request/node_modules/form-data/package.json;md5=bd35e0b775988ee9080c108ad5aa2ee1 \
+                    file://node_modules/request/node_modules/form-data/package.json;md5=bd35e0b775988ee9080c108ad5aa2ee1 \
                     file://node_modules/request/node_modules/qs/package.json;md5=dabbbd0380e4fd44e4d49cceeda84119 \
-                    
-file://node_modules/request/node_modules/tough-cookie/package.json;md5=fd096f2790eb11bb538a93611a2820ee \
-                    file://node_modules/request/node_modules/uuid/package.json;md5=a114f1fa334f6add6b4e4b8c0ca6057b 
-\
+                    file://node_modules/request/node_modules/tough-cookie/package.json;md5=fd096f2790eb11bb538a93611a2820ee \
+                    file://node_modules/request/node_modules/uuid/package.json;md5=a114f1fa334f6add6b4e4b8c0ca6057b \
                     file://node_modules/request/package.json;md5=663c3e276e3ba0b503fc062d6ceb22e0 \
                     file://node_modules/require-from-string/package.json;md5=91cd056851e4b3e025a8a63c4b697092 \
                     file://node_modules/requires-port/package.json;md5=f1ff2488f865b4589c1a9e44e1cc0e72 \
@@ -963,8 +822,7 @@ file://node_modules/request/node_modules/tough-cookie/package.json;md5=fd096f279
                     file://node_modules/sax/package.json;md5=4f338f842e93421a35e3ec9e051d650b \
                     file://node_modules/segfault-handler/package.json;md5=fff9c3268359741db1575d032ce35671 \
                     file://node_modules/semver/package.json;md5=a956eb74930c4c7232dbad51770d7719 \
-                    
-file://node_modules/send/node_modules/debug/node_modules/ms/package.json;md5=cbd55880a650b56c3d5acddbbdbee9bc \
+                    file://node_modules/send/node_modules/debug/node_modules/ms/package.json;md5=cbd55880a650b56c3d5acddbbdbee9bc \
                     file://node_modules/send/node_modules/debug/package.json;md5=71a7656944ffe50cc27ebe02491ae49b \
                     file://node_modules/send/node_modules/ms/package.json;md5=83b5d192dde33fb41adda4ce8b9eb521 \
                     file://node_modules/send/package.json;md5=3645cd9d22c03f5bc9b3dddfe795b348 \
@@ -979,9 +837,7 @@ file://node_modules/send/node_modules/debug/node_modules/ms/package.json;md5=cbd
                     file://node_modules/sqlite3/package.json;md5=272b6be0491ba24e65f4fe37a812a4ff \
                     file://node_modules/sshpk/package.json;md5=4ced8d334a4cd023e5b663c51ae88bc5 \
                     file://node_modules/stack-trace/package.json;md5=075663afd2a274ef74b88c7df49dec2c \
-                    
-file://node_modules/stack-utils/node_modules/escape-string-regexp/package.json;md5=5480cda71be16961c520f64a79b35eac 
-\
+                    file://node_modules/stack-utils/node_modules/escape-string-regexp/package.json;md5=5480cda71be16961c520f64a79b35eac \
                     file://node_modules/stack-utils/package.json;md5=ecfcb60631823325bbeae6733accde56 \
                     file://node_modules/statuses/package.json;md5=ce09e65d18aa8425eac89e41fde1837a \
                     file://node_modules/streamsearch/package.json;md5=6da86aa1ad809dadbdeb8c7f54cc4f03 \
@@ -992,12 +848,9 @@ file://node_modules/stack-utils/node_modules/escape-string-regexp/package.json;m
                     file://node_modules/strip-json-comments/package.json;md5=1dfad7430c94d2f136604def66ed9854 \
                     file://node_modules/supports-color/package.json;md5=79d88f702d689c72ebe1798d2853a96e \
                     file://node_modules/tar/node_modules/chownr/package.json;md5=8f7eeb8b80a6ebb304df487b88cbd703 \
-                    
-file://node_modules/tar/node_modules/fs-minipass/package.json;md5=5391f566f8afb10ff27831ab50bff208 \
-                    file://node_modules/tar/node_modules/minipass/package.json;md5=61e41d32eda6e2aa0e845ec4e6f79aaa 
-\
-                    file://node_modules/tar/node_modules/minizlib/package.json;md5=18063883e703c0f5da4521ecd2fedf57 
-\
+                    file://node_modules/tar/node_modules/fs-minipass/package.json;md5=5391f566f8afb10ff27831ab50bff208 \
+                    file://node_modules/tar/node_modules/minipass/package.json;md5=61e41d32eda6e2aa0e845ec4e6f79aaa \
+                    file://node_modules/tar/node_modules/minizlib/package.json;md5=18063883e703c0f5da4521ecd2fedf57 \
                     file://node_modules/tar/node_modules/yallist/package.json;md5=b15d27bf2cf04083fef9389ce68aa620 \
                     file://node_modules/tar/package.json;md5=53cf8c7d357149f0e8a3d1dfa5364edd \
                     file://node_modules/tar-stream/package.json;md5=b4e9cc0d7745a075a2f9a572ad0fd845 \
@@ -1018,18 +871,13 @@ file://node_modules/tar/node_modules/fs-minipass/package.json;md5=5391f566f8afb1
                     file://node_modules/uuid/package.json;md5=3c702f857bc044bd466bd7f260c5c1b1 \
                     file://node_modules/vary/package.json;md5=3577fc17c1b964af7cfe2c17c73f84f3 \
                     file://node_modules/verror/package.json;md5=5721040ba86c8a3b64364ccd5576a208 \
-                    file://node_modules/web-push/node_modules/jwa/package.json;md5=4776c65d9e7ffdffe1655ff0ed22ca26 
-\
-                    file://node_modules/web-push/node_modules/jws/package.json;md5=74504aefdf3abee36c2e35b905252fbe 
-\
+                    file://node_modules/web-push/node_modules/jwa/package.json;md5=4776c65d9e7ffdffe1655ff0ed22ca26 \
+                    file://node_modules/web-push/node_modules/jws/package.json;md5=74504aefdf3abee36c2e35b905252fbe \
                     file://node_modules/web-push/package.json;md5=a630853b1baddb9edb2532707bf7a893 \
                     file://node_modules/wide-align/package.json;md5=b408a19d562c2232e6d09bd6fc51a4a9 \
                     file://node_modules/winston/package.json;md5=41fa0d19d3f52648d56e6f499859f593 \
-                    file://node_modules/winston-daily-rotate-file/package.json;md5=5f40ad189cbb728dead21be30e438da4 
-\
-                    
-file://node_modules/winston-transport/node_modules/readable-stream/package.json;md5=55d646ab9e50735393b18c874d0bd5ab 
-\
+                    file://node_modules/winston-daily-rotate-file/package.json;md5=5f40ad189cbb728dead21be30e438da4 \
+                    file://node_modules/winston-transport/node_modules/readable-stream/package.json;md5=55d646ab9e50735393b18c874d0bd5ab \
                     file://node_modules/winston-transport/package.json;md5=77f4a6f2c432437c28680723a3071cdb \
                     file://node_modules/wordwrap/package.json;md5=de042387ba8d3842c4c36e626516e03c \
                     file://node_modules/wrappy/package.json;md5=788804d507f3ed479ea7614fa7d3f1a5 \
@@ -1109,7 +957,7 @@ LICENSE_${PN}-bcrypt-pbkdf = "Unknown"
 LICENSE_${PN}-bcryptjs = "Unknown"
 LICENSE_${PN}-bindings = "MIT"
 LICENSE_${PN}-bl = "Unknown"
-LICENSE_${PN}-block-stream = "ISC Unknown"
+LICENSE_${PN}-block-stream = "Unknown ISC"
 LICENSE_${PN}-bluebird = "MIT"
 LICENSE_${PN}-bnjs = "Unknown"
 LICENSE_${PN}-body-parser-debug = "MIT"
@@ -1444,4 +1292,3 @@ LICENSE_${PN}-wrappy = "ISC"
 LICENSE_${PN}-ws = "MIT"
 LICENSE_${PN}-yallist = "ISC"
 LICENSE_${PN}-zip-stream = "MIT"
-

@@ -890,6 +890,20 @@ SRC_URI = " \
     npmsw://${THISDIR}/${BPN}/npm-shrinkwrap.json \
     "
 
+DEPENDS += " \
+    bluez \
+    boost \
+    curl \
+    glib2 \
+    libffi \
+    libpng \
+    libusb1 \
+    npm \
+    udev \
+    python3-pip \
+    python3 \
+    "
+
 # Modify these as desired
 PV = "1.1.0+git${SRCPV}"
 SRCREV = "4c600fc973effc9dad335f65c3dea243bd5da225"

@@ -70,13 +70,14 @@ do_install() {
         tmp="$(mktemp)"
         f="{}"
         jq ".|=with_entries(select(.key|test(\"^_.+|^man\$\")|not))" "$f" > "$tmp"
+        echo mv "$tmp" "$f"
         mv "$tmp" "$f"
         chmod 644 "$f"
         ' \;
 
     rm -rf node_modules/sqlite3/build
 
-    install -D ${STAGING_DIR_TARGET}/opt/${PN}
+    install -d ${STAGING_DIR_TARGET}/opt/${PN}
 
     cp -r build        "${STAGING_DIR_TARGET}/opt/${PN}/"
     cp -r node_modules "${STAGING_DIR_TARGET}/opt/${PN}/"
@@ -91,8 +92,7 @@ do_install() {
     install -Dm644 package-lock.json "${STAGING_DIR_TARGET}/opt/${PN}/package-lock.json"
     install -Dm644 LICENSE           "${STAGING_DIR_TARGET}/opt/${PN}/LICENSE"
 
-    install -d ${D}${systemd_system_unitdir}
-    install -m 644 ${WORKDIR}/${PN}.service ${D}${systemd_system_unitdir}/${PN}.service
+    install -Dm 644 ${WORKDIR}/${PN}.service ${D}${systemd_system_unitdir}/${PN}.service
 }
 
 FILES_${PN} = "\

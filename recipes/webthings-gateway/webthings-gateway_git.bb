@@ -55,37 +55,37 @@ EXTRA_USERS_PARAMS = " \
     usermod -s /usr/sbin/nologin webthings; \
     "
 
-SYSTEMD_SERVICE_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.service', '', d)}"
-SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', '', d)}"
-
 npm_do_install[no_exec] = "1"
 do_install() {
 
     cd ${NPM_BUILD}/lib/node_modules/${PN}
 
-    install -d ${STAGING_DIR_TARGET}/opt/${PN}
+    install -d "${D}/opt/${PN}"
 
-    cp -r node_modules "${STAGING_DIR_TARGET}/opt/${PN}/"
-    cp -r src          "${STAGING_DIR_TARGET}/opt/${PN}/"
-    cp -r static       "${STAGING_DIR_TARGET}/opt/${PN}/"
+    cp -r node_modules "${D}/opt/${PN}/"
+    cp -r src          "${D}/opt/${PN}/"
+    cp -r static       "${D}/opt/${PN}/"
 
     # missing webpack
-    # cp -r build        "${STAGING_DIR_TARGET}/opt/${PN}/"
-    # find "${STAGING_DIR_TARGET}/opt/${PN}" -type d -exec chmod 0755 '{}' +
+    # cp -r build        "${D}/opt/${PN}/"
+    # find "${D}/opt/${PN}" -type d -exec chmod 0755 '{}' +
 
-    install ${S}/LICENSE             "${STAGING_DIR_TARGET}/opt/${PN}/LICENSE"
-    install ${S}/package.json        "${STAGING_DIR_TARGET}/opt/${PN}/package.json"
-    install ${S}/package-lock.json   "${STAGING_DIR_TARGET}/opt/${PN}/package-lock.json"
+    cd ${S}
+    install LICENSE           "${D}/opt/${PN}/LICENSE"
+    install package.json      "${D}/opt/${PN}/package.json"
+    install package-lock.json "${D}/opt/${PN}/package-lock.json"
 
-    cd ${WORKDIR}
-    
-    install -Dm755 ${PN}.sh          "${STAGING_DIR_TARGET}${bindir}/${PN}.sh"
-    install -Dm644 ${PN}.conf        "${STAGING_DIR_TARGET}/opt/${PN}/config/default.js"
+    cd ${WORKDIR}    
+    install -Dm755 ${PN}.sh   "${D}${bindir}/${PN}.sh"
+    install -Dm644 ${PN}.conf "${D}/opt/${PN}/config/default.js"
     
     if ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}; then
         install -Dm644 ${PN}.service     "${D}${systemd_system_unitdir}/${PN}.service"
     fi
 }
+
+SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', '', d)}"
+SYSTEMD_SERVICE_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.service', '', d)}"
 
 FILES_${PN} = "\
     ${bindir} \

@@ -1,29 +1,29 @@
-# Recipe created by recipetool
-# This is the basis of a recipe and may need further editing in order to be fully functional.
-# (Feel free to remove these comments when editing.)
-
 SUMMARY = "Web of Things gateway"
 HOMEPAGE = "https://webthings.io"
 
 include ${PN}-license.inc
 
-DEPENDS += " \
-    jq-native \
-    "
-
 RDEPENDS_${PN} += " \
+    autoconf \
     bash \
     boost \
-    curl \
+    dnsmasq \
+    git \
+    glib-2.0 \
+    hostapd \
     libffi \
     libpng \
+    libtool \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'libudev', '', d)} \
     libusb1 \
     make \
-    nodejs \
+    nodejs-npm \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'polkit', 'polkit', '', d)} \
     python3 \
-    python3-pip \
     python3-gateway-addon \
-    udev \
+    python3-pip \
+    python3-six \
+    sqlite3 \
     "
 
 PV = "1.1.0+git${SRCPV}"
@@ -55,16 +55,26 @@ EXTRA_USERS_PARAMS = " \
     usermod -s /usr/sbin/nologin webthings; \
     "
 
-npm_do_install[no_exec] = "1"
-do_install() {
+npm_do_install_append() {
+
+    rm -rf ${D}${nonarch_libdir}
 
     cd ${NPM_BUILD}/lib/node_modules/${PN}
 
     install -d "${D}/opt/${PN}"
 
-    cp -r node_modules "${D}/opt/${PN}/"
     cp -r src          "${D}/opt/${PN}/"
     cp -r static       "${D}/opt/${PN}/"
+    cp -r node_modules "${D}/opt/${PN}/"
+
+    rm -rf "${D}/opt/${PN}/node_modules/sqlite3/build-tmp-napi-v3/"
+    rm -rf "${D}/opt/${PN}/node_modules/sqlite3/tools/docker/"
+    rm -rf "${D}/opt/${PN}/node_modules/sqlite3/Dockerfile"
+    rm -rf "${D}/opt/${PN}/node_modules/node-gyp/gyp/samples/"
+    rm -rf "${D}/opt/${PN}/node_modules/node-gyp/test/"
+
+    # disables tunnel service
+    rm -rf "${D}/opt/${PN}/pagekite.py"
 
     # missing webpack
     # cp -r build        "${D}/opt/${PN}/"
@@ -87,8 +97,7 @@ do_install() {
 SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', '', d)}"
 SYSTEMD_SERVICE_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.service', '', d)}"
 
-FILES_${PN} = "\
-    ${bindir} \
+FILES_${PN} += "\
     /opt/${PN} \
     ${systemd_system_unitdir} \
     "

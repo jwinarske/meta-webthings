@@ -58,15 +58,11 @@ EXTRA_USERS_PARAMS = " \
 SYSTEMD_SERVICE_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.service', '', d)}"
 SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', '', d)}"
 
-npm_do_compile[no_exec] = "1"
 npm_do_install[no_exec] = "1"
-
-do_compile() {
+do_install() {
 
     cd ${S}
 
-    npm --user root --cache "${NPM_CACHE}" ci
-    ./node_modules/.bin/webpack
     npm --cache "${NPM_CACHE}" prune --production
 
     # Remove references to $srcdir
@@ -79,11 +75,6 @@ do_compile() {
         ' \;
 
     rm -rf node_modules/sqlite3/build
-}
-
-do_install() {
-
-    cd ${S}
 
     install -D ${STAGING_DIR_TARGET}/opt/${PN}
 

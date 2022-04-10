@@ -73,9 +73,9 @@ do_install() {
     # cp -r build        "${STAGING_DIR_TARGET}/opt/${PN}/"
     # find "${STAGING_DIR_TARGET}/opt/${PN}" -type d -exec chmod 0755 '{}' +
 
-    install -Dm644 package.json      "${STAGING_DIR_TARGET}/opt/${PN}/package.json"
-    install -Dm644 package-lock.json "${STAGING_DIR_TARGET}/opt/${PN}/package-lock.json"
-    install -Dm644 LICENSE           "${STAGING_DIR_TARGET}/opt/${PN}/LICENSE"
+    install ${S}/LICENSE             "${STAGING_DIR_TARGET}/opt/${PN}/LICENSE"
+    install ${S}/package.json        "${STAGING_DIR_TARGET}/opt/${PN}/package.json"
+    install ${S}/package-lock.json   "${STAGING_DIR_TARGET}/opt/${PN}/package-lock.json"
 
     cd ${WORKDIR}
     

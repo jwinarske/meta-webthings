@@ -61,38 +61,30 @@ SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', 
 npm_do_install[no_exec] = "1"
 do_install() {
 
-    cd ${S}
-
-    npm --cache "${NPM_CACHE}" prune --production
-
-    # Remove references to $srcdir
-    find node_modules -name package.json -exec sh -c '
-        tmp="$(mktemp)"
-        f="{}"
-        jq ".|=with_entries(select(.key|test(\"^_.+|^man\$\")|not))" "$f" > "$tmp"
-        echo mv "$tmp" "$f"
-        mv "$tmp" "$f"
-        chmod 644 "$f"
-        ' \;
-
-    rm -rf node_modules/sqlite3/build
+    cd ${NPM_BUILD}/lib/node_modules/${PN}
 
     install -d ${STAGING_DIR_TARGET}/opt/${PN}
 
-    cp -r build        "${STAGING_DIR_TARGET}/opt/${PN}/"
     cp -r node_modules "${STAGING_DIR_TARGET}/opt/${PN}/"
     cp -r src          "${STAGING_DIR_TARGET}/opt/${PN}/"
     cp -r static       "${STAGING_DIR_TARGET}/opt/${PN}/"
 
-    find "${STAGING_DIR_TARGET}/opt/${PN}" -type d -exec chmod 0755 '{}' +
+    # missing webpack
+    # cp -r build        "${STAGING_DIR_TARGET}/opt/${PN}/"
+    # find "${STAGING_DIR_TARGET}/opt/${PN}" -type d -exec chmod 0755 '{}' +
 
-    install -Dm755 ${PN}.sh          "${STAGING_DIR_TARGET}${bindir}/${PN}.sh"
-    install -Dm644 ${PN}.conf        "${STAGING_DIR_TARGET}/opt/${PN}/config/default.js"
     install -Dm644 package.json      "${STAGING_DIR_TARGET}/opt/${PN}/package.json"
     install -Dm644 package-lock.json "${STAGING_DIR_TARGET}/opt/${PN}/package-lock.json"
     install -Dm644 LICENSE           "${STAGING_DIR_TARGET}/opt/${PN}/LICENSE"
 
-    install -Dm 644 ${WORKDIR}/${PN}.service ${D}${systemd_system_unitdir}/${PN}.service
+    cd ${WORKDIR}
+    
+    install -Dm755 ${PN}.sh          "${STAGING_DIR_TARGET}${bindir}/${PN}.sh"
+    install -Dm644 ${PN}.conf        "${STAGING_DIR_TARGET}/opt/${PN}/config/default.js"
+    
+    if ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}; then
+        install -Dm644 ${PN}.service     "${D}${systemd_system_unitdir}/${PN}.service"
+    fi
 }
 
 FILES_${PN} = "\

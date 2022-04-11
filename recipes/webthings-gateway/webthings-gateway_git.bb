@@ -24,6 +24,7 @@ RDEPENDS_${PN} += " \
     python3-pip \
     python3-six \
     sqlite3 \
+    util-linux \
     "
 
 PV = "1.1.0+git${SRCPV}"
@@ -73,8 +74,8 @@ npm_do_install_append() {
     rm -rf "${D}/opt/${PN}/node_modules/node-gyp/gyp/samples/"
     rm -rf "${D}/opt/${PN}/node_modules/node-gyp/test/"
 
-    # disables tunnel service
-    rm -rf "${D}/opt/${PN}/pagekite.py"
+    # pagekite is known to work on python3
+    sed -i 's|#!/usr/bin/python|#!/usr/bin/python3|g' pagekite.py
 
     # missing webpack
     # cp -r build        "${D}/opt/${PN}/"

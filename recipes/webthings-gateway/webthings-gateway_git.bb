@@ -27,7 +27,7 @@ RDEPENDS_${PN} += " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'pam', 'util-linux', '', d)} \
     "
 
-PV = "1.1.0+git${SRCPV}"
+PV = "1.0.0+git${SRCPV}"
 SRCREV = "4c600fc973effc9dad335f65c3dea243bd5da225"
 
 SRC_URI = " \
@@ -43,6 +43,11 @@ S = "${WORKDIR}/git"
 
 inherit npm systemd extrausers
 
+EXTRA_USERS_PARAMS = " \
+    useradd webthings; \
+    usermod -s /usr/sbin/nologin webthings; \
+    "
+
 PACKAGECONFIG ??= "internet-radio mdns mqtt network-presence video"
 
 PACKAGECONFIG[internet-radio] = ", , alsa-utils"
@@ -51,43 +56,40 @@ PACAKGECONFIG[mqtt] = ", , mosquitto"
 PACKAGECONFIG[network-presence] = ", , iputils"
 PACKAGECONFIG[video] = ", , ffmpeg"
 
-EXTRA_USERS_PARAMS = " \
-    useradd webthings; \
-    usermod -s /usr/sbin/nologin webthings; \
-    "
-
-npm_do_install_append() {
-
-    rm -rf ${D}${nonarch_libdir}
+npm_do_install_prepend() {
 
     cd ${NPM_BUILD}/lib/node_modules/${PN}
 
-    install -d "${D}/opt/${PN}"
+    npm --cache "${NPM_CACHE}" install -D
 
-    cp -r src          "${D}/opt/${PN}/"
-    cp -r static       "${D}/opt/${PN}/"
-    cp -r node_modules "${D}/opt/${PN}/"
+    ./node_modules/.bin/webpack
 
-    rm -rf "${D}/opt/${PN}/node_modules/sqlite3/build-tmp-napi-v3/"
-    rm -rf "${D}/opt/${PN}/node_modules/sqlite3/tools/docker/"
-    rm -rf "${D}/opt/${PN}/node_modules/sqlite3/Dockerfile"
-    rm -rf "${D}/opt/${PN}/node_modules/node-gyp/gyp/samples/"
-    rm -rf "${D}/opt/${PN}/node_modules/node-gyp/test/"
+    npm --cache "${NPM_CACHE}" prune --production
 
-    # pagekite is known to work on python3
+    rm -rf ./node_modules/sqlite3/build-tmp-napi-v3/
+    # rm -rf ./node_modules/sqlite3/tools/docker/
+    # rm -rf ./node_modules/sqlite3/Dockerfile
+    # rm -rf ./node_modules/node-gyp/gyp/samples/
+    # rm -rf ./node_modules/node-gyp/test/
+
+    # This is to pass package QA step, as we don't have a python symlink on target
+    # this can be removed if python3_%.bbappend is added, which creates /usr/bin/python symlink
     sed -i 's|#!/usr/bin/python|#!/usr/bin/python3|g' pagekite.py
+}
 
-    # missing webpack
-    # cp -r build        "${D}/opt/${PN}/"
-    # find "${D}/opt/${PN}" -type d -exec chmod 0755 '{}' +
+npm_do_install_append() {
 
-    cd ${S}
-    install LICENSE           "${D}/opt/${PN}/LICENSE"
-    install package.json      "${D}/opt/${PN}/package.json"
-    install package-lock.json "${D}/opt/${PN}/package-lock.json"
+    # install -d "${D}/opt/${PN}"
 
-    cd ${WORKDIR}    
-    install -Dm755 ${PN}.sh   "${D}${bindir}/${PN}.sh"
+    cp -r build        "${D}/opt/${PN}/"
+
+    # install ${S}/LICENSE           "${D}${nonarch_libdir}/${PN}/LICENSE"
+    # install ${S}/package.json      "${D}${nonarch_libdir}/${PN}/package.json"
+
+    install ${S}/package-lock.json "${D}${nonarch_libdir}/${PN}/package-lock.json"
+
+    cd ${WORKDIR}
+    install -Dm755 ${PN}.sh   "${D}${bindir}/${PN}"
     install -Dm644 ${PN}.conf "${D}/opt/${PN}/config/default.js"
     
     if ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}; then
@@ -99,6 +101,5 @@ SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', 
 SYSTEMD_SERVICE_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.service', '', d)}"
 
 FILES_${PN} += "\
-    /opt/${PN} \
     ${systemd_system_unitdir} \
     "

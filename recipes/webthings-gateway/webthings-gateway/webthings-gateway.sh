@@ -15,7 +15,7 @@ fi
 cap_prefix="-cap_"
 caps="$cap_prefix$(seq -s ",$cap_prefix" 0 $(cat /proc/sys/kernel/cap_last_cap))"
 
-cd /opt/webthings-gateway
+cd /usr/lib/webthings-gateway
 setpriv \
   --reuid=webthings \
   --regid=webthings \

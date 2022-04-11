@@ -24,7 +24,7 @@ RDEPENDS_${PN} += " \
     python3-pip \
     python3-six \
     sqlite3 \
-    util-linux \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'pam', 'util-linux', '', d)} \
     "
 
 PV = "1.1.0+git${SRCPV}"

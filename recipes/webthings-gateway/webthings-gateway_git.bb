@@ -62,14 +62,6 @@ PACAKGECONFIG[mqtt] = ", , mosquitto"
 PACKAGECONFIG[network-presence] = ", , iputils"
 PACKAGECONFIG[video] = ", , ffmpeg"
 
-NPM_ARGS = " \
-    --arch=${TARGET_ARCH} \
-    --build-from-source=true \
-    --python=${STAGING_DIR_NATIVE}${bindir}/python3-native \
-    --release=true \
-    --sqlite=${D}${libdir} \
-    --target-arch=${TARGET_ARCH} \
-    "
 
 do_compile() {
     export HOME="${WORKDIR}"
@@ -78,8 +70,14 @@ do_compile() {
 
     cd ${S}
     
-    npm --user root i fsevents@latest -f --save-optional
-    npm --user root i "${NPM_ARGS}"
+    # npm --user root install fsevents@latest -f --save-optional
+    npm --user root install \
+        --arch=${TARGET_ARCH} \
+        --build-from-source=true \
+        --python=${STAGING_DIR_NATIVE}${bindir}/python3-native \
+        --release=true \
+        --sqlite=${D}${libdir} \
+        --target-arch=${TARGET_ARCH}
 
     ./node_modules/.bin/webpack
     npm prune --production

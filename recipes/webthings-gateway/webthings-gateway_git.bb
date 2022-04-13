@@ -91,12 +91,12 @@ do_compile() {
     npm prune --production
 
     # Remove references to $srcdir
-    find node_modules -name package.json -exec sh -c '
-        tmp="$(mktemp)"
-        f="{}"
-        jq ".|=with_entries(select(.key|test(\"^_.+|^man\$\")|not))" "$f" > "$tmp"
-        mv "$tmp" "$f"
-        chmod 644 "$f"
+    find node_modules -name package.json -exec sh -c ' \
+        tmp="$(mktemp)" \
+        f="{}" \
+        jq ".|=with_entries(select(.key|test(\"^_.+|^man\$\")|not))" "$f" > "$tmp" \
+        mv "$tmp" "$f" \
+        chmod 644 "$f" \
         ' \;
 
     rm -rf node_modules/sqlite3/build-tmp-napi-v3

@@ -62,11 +62,22 @@ PACKAGECONFIG[network-presence] = ", , iputils"
 PACKAGECONFIG[video] = ", , ffmpeg"
 
 do_compile() {
+    export HOME="${WORKDIR}"
+    export GYP_DEFINES="sysroot=${STAGING_DIR_HOST}"
+    export LD="${CXX}"
 
     cd ${S}
-    npm --user root --cache "${S}/npm-cache" ci
+    
+    npm install \
+      --arch=${TARGET_ARCH} \
+      --build-from-source=true \
+      --python=${STAGING_DIR_HOST}${bindir}/python3 \
+      --release=true \
+      --sqlite=${D}${libdir} \
+      --target-arch=${TARGET_ARCH}
+
     ./node_modules/.bin/webpack
-    npm --cache "${S}/npm-cache" prune --production
+    npm prune --production
 
     # Remove references to $srcdir
     find node_modules -name package.json -exec sh -c '

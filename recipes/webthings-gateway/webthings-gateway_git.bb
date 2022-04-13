@@ -4,8 +4,8 @@ HOMEPAGE = "https://webthings.io"
 include ${PN}-license.inc
 
 DEPENDS += " \
+    automake-native \
     libpng \
-    nasm-native \
     nodejs-native \
     python3-native \
     sqlite3 \
@@ -48,7 +48,7 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-inherit base systemd extrausers pkgconfig
+inherit base pkgconfig systemd extrausers
 
 EXTRA_USERS_PARAMS = " \
     useradd webthings; \
@@ -65,30 +65,55 @@ PACKAGECONFIG[video] = ", , ffmpeg"
 
 
 do_compile() {
+
+    # required to properly cross compile for target
+    export CFLAGS="${BUILD_CFLAGS} -v"
+    export CXXFLAGS="${BUILD_CXXFLAGS} -v"
+    export CPPFLAGS="${BUILD_CPPFLAGS} -v"
+    export LDFLAGS="${BUILD_LDFLAGS} -v"
+    export LD="${BUILD_LD}"
+    export PYTHON=${STAGING_DIR_NATIVE}${bindir}/python3-native
+
+    # for gifsicle
+    export ac_cv_build="${TARGET_SYS}"
+
+    # prevent host corruption, and use defaults for cache
     export HOME="${WORKDIR}"
-    export GYP_DEFINES="sysroot=${STAGING_DIR_TARGET}"
-    export LD="${CXX}"
+
+    echo '* evnironment ************************************'
+    env
 
     cd ${S}
-    
-    npm install fsevents@latest -f --save-optional
-    npm install \
+
+    echo '* fsevent install ********************************'
+    # prevents build break, even though not used on linux
+    npm \
+        --user root \
         --arch=${TARGET_ARCH} \
         --build-from-source=true \
+        --loglevel=verbose \
         --python=${STAGING_DIR_NATIVE}${bindir}/python3-native \
         --release=true \
-        --sqlite=${D}${libdir} \
-        --target-arch=${TARGET_ARCH}
+        --sqlite=${STAGING_DIR_TARGET}${libdir} \
+        --target-arch=${TARGET_ARCH} \
+        install fsevents@latest -f --save-optional
 
+    echo '* audit ******************************************'
     npm audit ||true
     
+    echo '* envinfo ****************************************'
     ./node_modules/.bin/envinfo ||true
+
+    echo '* webpack info ***********************************'
     ./node_modules/.bin/webpack i ||true
 
+    echo '* webpack ****************************************'
     ./node_modules/.bin/webpack --stats verbose
 
+    echo '* prune ******************************************'
     npm prune --production
 
+    echo '* remove sqllite build folder ********************'
     rm -rf ./node_modules/sqlite3/build*
 }
 

@@ -5,6 +5,7 @@ include ${PN}-license.inc
 
 DEPENDS += " \
     libpng \
+    nasm-native \
     nodejs-native \
     python3-native \
     sqlite3 \
@@ -27,7 +28,6 @@ RDEPENDS_${PN} += " \
     nodejs-npm \
     ${@bb.utils.contains('DISTRO_FEATURES', 'polkit', 'polkit', '', d)} \
     python3 \
-    python3-gateway-addon \
     python3-pip \
     python3-six \
     sqlite3 \
@@ -80,26 +80,16 @@ do_compile() {
         --sqlite=${D}${libdir} \
         --target-arch=${TARGET_ARCH}
 
-    npm audit
-
-    bbnote(`./node_modules/.bin/envinfo`)
-
-    bbote(`./node_modules/.bin/webpack i`)
+    npm audit ||true
+    
+    ./node_modules/.bin/envinfo ||true
+    ./node_modules/.bin/webpack i ||true
 
     ./node_modules/.bin/webpack --stats verbose
 
     npm prune --production
 
-    # Remove references to $srcdir
-    find node_modules -name package.json -exec sh -c ' \
-        tmp="$(mktemp)" \
-        f="{}" \
-        jq ".|=with_entries(select(.key|test(\"^_.+|^man\$\")|not))" "$f" > "$tmp" \
-        mv "$tmp" "$f" \
-        chmod 644 "$f" \
-        ' \\;
-
-    rm -rf node_modules/sqlite3/build-tmp-napi-v3
+    rm -rf ./node_modules/sqlite3/build*
 }
 
 do_install() {
@@ -108,10 +98,10 @@ do_install() {
 
     mkdir -p "${D}/opt/${PN}"
 
-    cp -r "${S}/build" "${D}/opt/${PN}/"
+    cp -r "${S}/build"        "${D}/opt/${PN}/"
     cp -r "${S}/node_modules" "${D}/opt/${PN}/"
-    cp -r "${S}/src" "${D}/opt/${PN}/"
-    cp -r "${S}/static" "${D}/opt/${PN}/"
+    cp -r "${S}/src"          "${D}/opt/${PN}/"
+    cp -r "${S}/static"       "${D}/opt/${PN}/"
 
     find "${D}/opt/${PN}" -type d -exec chmod 0755 '{}' +
 

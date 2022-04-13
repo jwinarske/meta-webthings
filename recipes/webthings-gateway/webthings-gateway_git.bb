@@ -70,8 +70,8 @@ do_compile() {
 
     cd ${S}
     
-    # npm --user root install fsevents@latest -f --save-optional
-    npm --user root install \
+    npm install fsevents@latest -f --save-optional
+    npm install \
         --arch=${TARGET_ARCH} \
         --build-from-source=true \
         --python=${STAGING_DIR_NATIVE}${bindir}/python3-native \

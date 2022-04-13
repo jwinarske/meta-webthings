@@ -72,7 +72,7 @@ do_compile() {
     npm --user root install \
       --arch=${TARGET_ARCH} \
       --build-from-source=true \
-      --python=${STAGING_DIR_HOST}${bindir}/python3 \
+      --python=${STAGING_DIR_NATIVE}${bindir}/python3-native \
       --release=true \
       --sqlite=${D}${libdir} \
       --target-arch=${TARGET_ARCH}

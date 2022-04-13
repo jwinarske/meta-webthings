@@ -73,7 +73,7 @@ NPM_ARGS = " \
 
 do_compile() {
     export HOME="${WORKDIR}"
-    export GYP_DEFINES="sysroot=${STAGING_DIR_HOST}"
+    export GYP_DEFINES="sysroot=${STAGING_DIR_TARGET}"
     export LD="${CXX}"
 
     cd ${S}

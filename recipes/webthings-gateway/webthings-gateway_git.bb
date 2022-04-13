@@ -41,7 +41,7 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-inherit npm systemd extrausers
+inherit npm_run_build systemd extrausers
 
 EXTRA_USERS_PARAMS = " \
     useradd webthings; \
@@ -56,11 +56,11 @@ PACAKGECONFIG[mqtt] = ", , mosquitto"
 PACKAGECONFIG[network-presence] = ", , iputils"
 PACKAGECONFIG[video] = ", , ffmpeg"
 
+NPM_INSTALL_DEV = "1" 
+
 npm_do_install_prepend() {
 
     cd ${NPM_BUILD}/lib/node_modules/${PN}
-
-    npm --cache "${NPM_CACHE}" install -D
 
     ./node_modules/.bin/webpack
 

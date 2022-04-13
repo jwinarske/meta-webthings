@@ -5,6 +5,7 @@ include ${PN}-license.inc
 
 DEPENDS += " \
     nodejs-native \
+    sqlite3 \
     "
 
 RDEPENDS_${PN} += " \
@@ -45,7 +46,7 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-inherit base systemd extrausers
+inherit base systemd extrausers pkgconfig
 
 EXTRA_USERS_PARAMS = " \
     useradd webthings; \

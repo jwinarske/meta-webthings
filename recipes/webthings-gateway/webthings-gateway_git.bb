@@ -78,7 +78,7 @@ do_compile() {
 
     cd ${S}
     
-    npm --user root i fsevents@latest -f --save-optional "${NPM_ARGS}"
+    npm --user root i fsevents@latest -f --save-optional
     npm --user root i "${NPM_ARGS}"
 
     ./node_modules/.bin/webpack

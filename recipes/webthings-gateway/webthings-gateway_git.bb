@@ -4,7 +4,7 @@ HOMEPAGE = "https://webthings.io"
 include ${PN}-license.inc
 
 DEPENDS += " \
-    nasm-native \
+    libpng \
     nodejs-native \
     python3-native \
     sqlite3 \

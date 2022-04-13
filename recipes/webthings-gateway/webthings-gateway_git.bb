@@ -68,7 +68,7 @@ NPM_ARGS = " \
     --python=${STAGING_DIR_NATIVE}${bindir}/python3-native \
     --release=true \
     --sqlite=${D}${libdir} \
-    --target-arch=${TARGET_ARCH}
+    --target-arch=${TARGET_ARCH} \
     "
 
 do_compile() {

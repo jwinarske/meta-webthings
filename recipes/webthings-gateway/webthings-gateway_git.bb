@@ -41,7 +41,7 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-inherit npm_run_build systemd extrausers
+inherit base systemd extrausers
 
 EXTRA_USERS_PARAMS = " \
     useradd webthings; \
@@ -56,42 +56,46 @@ PACAKGECONFIG[mqtt] = ", , mosquitto"
 PACKAGECONFIG[network-presence] = ", , iputils"
 PACKAGECONFIG[video] = ", , ffmpeg"
 
-NPM_INSTALL_DEV = "1" 
+do_compile() {
 
-npm_do_install_prepend() {
-
-    cd ${NPM_BUILD}/lib/node_modules/${PN}
-
+    cd ${S}
+    npm --user root --cache "${S}/npm-cache" ci
     ./node_modules/.bin/webpack
+    npm --cache "${S}/npm-cache" prune --production
 
-    npm --cache "${NPM_CACHE}" prune --production
+    # Remove references to $srcdir
+    find node_modules -name package.json -exec sh -c '
+        tmp="$(mktemp)"
+        f="{}"
+        jq ".|=with_entries(select(.key|test(\"^_.+|^man\$\")|not))" "$f" > "$tmp"
+        mv "$tmp" "$f"
+        chmod 644 "$f"
+        ' \;
 
-    rm -rf ./node_modules/sqlite3/build-tmp-napi-v3/
-    # rm -rf ./node_modules/sqlite3/tools/docker/
-    # rm -rf ./node_modules/sqlite3/Dockerfile
-    # rm -rf ./node_modules/node-gyp/gyp/samples/
-    # rm -rf ./node_modules/node-gyp/test/
-
-    # This is to pass package QA step, as we don't have a python symlink on target
-    # this can be removed if python3_%.bbappend is added, which creates /usr/bin/python symlink
-    sed -i 's|#!/usr/bin/python|#!/usr/bin/python3|g' pagekite.py
+    rm -rf node_modules/sqlite3/build
 }
 
-npm_do_install_append() {
+do_install() {
 
-    # install -d "${D}/opt/${PN}"
+    sed -i 's|#!/usr/bin/python|#!/usr/bin/python3|g' pagekite.py
 
-    cp -r build        "${D}/opt/${PN}/"
+    mkdir -p "${D}/opt/${PN}"
 
-    # install ${S}/LICENSE           "${D}${nonarch_libdir}/${PN}/LICENSE"
-    # install ${S}/package.json      "${D}${nonarch_libdir}/${PN}/package.json"
+    cp -r "${S}/build" "${D}/opt/${PN}/"
+    cp -r "${S}/node_modules" "${D}/opt/${PN}/"
+    cp -r "${S}/src" "${D}/opt/${PN}/"
+    cp -r "${S}/static" "${D}/opt/${PN}/"
 
-    install ${S}/package-lock.json "${D}${nonarch_libdir}/${PN}/package-lock.json"
+    find "${D}/opt/${PN}" -type d -exec chmod 0755 '{}' +
 
-    cd ${WORKDIR}
-    install -Dm755 ${PN}.sh   "${D}${bindir}/${PN}"
-    install -Dm644 ${PN}.conf "${D}/opt/${PN}/config/default.js"
-    
+    install -Dm644 "${S}/${PN}.conf"        "${D}/opt/${PN}/config/default.js"
+    install -Dm644 "${S}/package.json"      "${D}/opt/${PN}/package.json"
+    install -Dm644 "${S}/package-lock.json" "${D}/opt/${PN}/package-lock.json"
+    install -Dm644 "${S}/LICENSE"           "${D}/opt/${PN}/LICENSE"
+
+    install -Dm755 ${WORKDIR}/${PN}.sh   "${D}${bindir}/${PN}"
+    install -Dm644 ${WORKDIR}/${PN}.conf "${D}/opt/${PN}/config/default.js"
+
     if ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}; then
         install -Dm644 ${PN}.service     "${D}${systemd_system_unitdir}/${PN}.service"
     fi
@@ -101,5 +105,6 @@ SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', 
 SYSTEMD_SERVICE_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.service', '', d)}"
 
 FILES_${PN} += "\
+    /opt
     ${systemd_system_unitdir} \
     "

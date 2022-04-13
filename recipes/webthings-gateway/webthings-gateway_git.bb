@@ -105,6 +105,6 @@ SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', 
 SYSTEMD_SERVICE_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.service', '', d)}"
 
 FILES_${PN} += "\
-    /opt
+    /opt \
     ${systemd_system_unitdir} \
     "

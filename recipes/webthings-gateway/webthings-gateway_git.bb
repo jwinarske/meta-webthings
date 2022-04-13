@@ -80,7 +80,14 @@ do_compile() {
         --sqlite=${D}${libdir} \
         --target-arch=${TARGET_ARCH}
 
-    ./node_modules/.bin/webpack
+    npm audit
+
+    bbnote(`./node_modules/.bin/envinfo`)
+
+    bbote(`./node_modules/.bin/webpack i`)
+
+    ./node_modules/.bin/webpack --stats verbose
+
     npm prune --production
 
     # Remove references to $srcdir

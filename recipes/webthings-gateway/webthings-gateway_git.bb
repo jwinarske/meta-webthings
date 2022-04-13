@@ -5,6 +5,7 @@ include ${PN}-license.inc
 
 DEPENDS += " \
     nodejs-native \
+    python3-native \
     sqlite3 \
     "
 
@@ -68,7 +69,7 @@ do_compile() {
 
     cd ${S}
     
-    npm install \
+    npm --user root install \
       --arch=${TARGET_ARCH} \
       --build-from-source=true \
       --python=${STAGING_DIR_HOST}${bindir}/python3 \
@@ -88,7 +89,7 @@ do_compile() {
         chmod 644 "$f"
         ' \;
 
-    rm -rf node_modules/sqlite3/build
+    rm -rf node_modules/sqlite3/build-tmp-napi-v3
 }
 
 do_install() {

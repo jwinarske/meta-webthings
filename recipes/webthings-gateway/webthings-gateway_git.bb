@@ -3,6 +3,10 @@ HOMEPAGE = "https://webthings.io"
 
 include ${PN}-license.inc
 
+DEPENDS += " \
+    nodejs-native \
+    "
+
 RDEPENDS_${PN} += " \
     autoconf \
     bash \

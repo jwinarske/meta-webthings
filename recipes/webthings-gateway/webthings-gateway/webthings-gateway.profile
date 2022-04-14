@@ -1,1 +1,1 @@
-export MOZIOT_HOME="/etc/webthings-gateway"
+export MOZIOT_HOME="${HOME}/.webthings"

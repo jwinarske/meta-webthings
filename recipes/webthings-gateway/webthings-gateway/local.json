@@ -1,0 +1,10 @@
+{
+    "ports": {
+        "https": 8081,
+        "http": 8080
+    },
+    "updates": {
+        "url": "https://api.webthings.io:8443/releases",
+        "allowPrerelease": false
+    }
+}

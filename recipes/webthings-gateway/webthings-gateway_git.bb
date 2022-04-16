@@ -10,16 +10,25 @@ DEPENDS += " \
     sqlite3 \
     "
 
+# arping wiringpi
+
 RDEPENDS_${PN} += " \
     bash \
     boost \
+    curl \
+    ffmpeg \
+    git \
     glib-2.0 \
+    iputils \
     libffi \
     ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'libudev', '', d)} \
     libusb1 \
+    mosquitto \
     nodejs \
+    nodejs-npm \
     ${@bb.utils.contains('DISTRO_FEATURES', 'polkit', 'polkit', '', d)} \
     python3 \
+    python3-gateway-addon \
     python3-pip \
     python3-six \
     sqlite3 \
@@ -32,29 +41,22 @@ SRCREV = "4c600fc973effc9dad335f65c3dea243bd5da225"
 SRC_URI = " \
     git://github.com/WebThingsIO/gateway.git;protocol=https;branch=master \
     npmsw://${THISDIR}/${BPN}/npm-shrinkwrap.json \
-    file://webthings-gateway.conf \
-    file://webthings-gateway.profile \
-    file://webthings-gateway.service \
+    file://default.js \
+    file://local.json \
+    file://run-app.sh \
+    file://post-upgrade.sh \
+    file://${PN}.profile \
+    file://${PN}.service \
+    file://${PN}.check-for-update.service \
+    file://${PN}.check-for-update.timer \
     "
 
 S = "${WORKDIR}/git"
 
-inherit base pkgconfig systemd extrausers
+inherit base systemd
 
-EXTRA_USERS_PARAMS = " \
-    useradd webthings; \
-    usermod -s /sbin/nologin webthings; \
-    "
-
-PACKAGECONFIG ??= "internet-radio mdns mqtt network-presence video"
-
-PACKAGECONFIG[internet-radio] = ", , alsa-utils"
-PACAKGECONFIG[mdns] = ", , avahi-daemon"
-PACAKGECONFIG[mqtt] = ", , mosquitto"
-PACKAGECONFIG[network-presence] = ", , iputils"
-PACKAGECONFIG[video] = ", , ffmpeg"
-
-INSTALL_BASE = "/opt/${PN}"
+INSTALL_BASE = "/opt/gateway"
+INSTALL_USER = "root"
 
 do_compile() {
 
@@ -75,7 +77,7 @@ do_compile() {
     env
 
     echo '* npm install ************************************'
-    # fsevent install prevents build break, even though not used on linux
+    # fsevent install prevents build break, even though fsevents is not used on linux
     npm \
         --user root \
         --arch=${TARGET_ARCH} \
@@ -101,31 +103,28 @@ do_compile() {
     ./node_modules/.bin/webpack i ||true
 
     echo '* build ******************************************'
-    rm -rf build
-    cp -rL src build
-    find build -name '*.ts' -delete
-    ./node_modules/.bin/tsc -p .
-    ./node_modules/.bin/webpack --stats verbose
+    npm run build
 
-    find build -name '*.ts' -delete
-    find build -name '*.map' -delete
-
-    echo '* remove devDependencies packages ****************'
+    echo '* prevent fsevents packaging *********************'
+    npm uninstall fsevents
+    
+    echo '* remove devDependencies *************************'
     npm prune --production
 
     echo '* clean up ***************************************'
+    find build -name '*.ts' -delete
+    find build -name '*.map' -delete
+
     rm -rf node_modules/sqlite3/build*
     rm -rf node_modules/sqlite3/Dockerfile
     rm -rf node_modules/sqlite3/tools/docker/
     rm -rf node_modules/node-gyp/gyp/samples/
-    rm -rf node_modules/fsevents/*.node
-
-    # find node_modules -iname .map -print0 | xargs -0 -n1 rm -rf
-    # find node_modules -iname .deps -print0 | xargs -0 -n1 rm -rf
-    # find node_modules -iname obj.target -print0 | xargs -0 -n1 rm -rf
 
     echo '* fix up paths ***********************************'
     find node_modules -iname package.json -print0 | xargs -0 -n1 sed -i "s|${S}|${INSTALL_BASE}|g"
+
+    # not sure why it uses arm64 vs aarch64
+    mv node_modules/sqlite3/lib/binding/napi-v3-linux-aarch64 node_modules/sqlite3/lib/binding/napi-v3-linux-arm64 || true
 }
 
 do_install() {
@@ -136,37 +135,46 @@ do_install() {
     sed -i 's|#!/usr/bin/python|#!/usr/bin/env python3|g' pagekite.py
 
     # fix up run script
-    sed -i 's|\${HOME}/webthings/gateway|/opt/webthings-gateway|g' run-app.sh
+    sed -i 's|\${HOME}/webthings/gateway|/opt/gateway|g' run-app.sh
 
-    install -Dm644 ${WORKDIR}/${PN}.conf    ${D}${INSTALL_BASE}/config/default.js
+    install -d          ${D}${INSTALL_BASE}
+    cp -r build         ${D}${INSTALL_BASE}/
+    cp -r node_modules  ${D}${INSTALL_BASE}/
+    cp -r static        ${D}${INSTALL_BASE}/
+    cp -r tools         ${D}${INSTALL_BASE}/
 
-    install -m755 run-app.sh        ${D}${INSTALL_BASE}/
-    install -m755 pagekite.py       ${D}${INSTALL_BASE}/
-    install -m644 global.d.ts       ${D}${INSTALL_BASE}/
-    install -m644 package.json      ${D}${INSTALL_BASE}/
-    install -m644 package-lock.json ${D}${INSTALL_BASE}/
-    install -m644 LICENSE           ${D}${INSTALL_BASE}/
+    install -Dm644 ${WORKDIR}/default.js     ${D}${INSTALL_BASE}/config/default.js
+    install -m755 ${WORKDIR}/run-app.sh      ${D}${INSTALL_BASE}/
 
-    cp -r build                     ${D}${INSTALL_BASE}/
-    cp -r node_modules              ${D}${INSTALL_BASE}/
-    cp -r static                    ${D}${INSTALL_BASE}/
-    cp -r tools                     ${D}${INSTALL_BASE}/
+    install -m644 LICENSE                    ${D}${INSTALL_BASE}/
+    install -m644 package.json               ${D}${INSTALL_BASE}/
+    install -m644 package-lock.json          ${D}${INSTALL_BASE}/
+    install -m755 pagekite.py                ${D}${INSTALL_BASE}/
+    #install -m644 requirements.txt           ${D}${INSTALL_BASE}/
+
+    install -Dm644 ${WORKDIR}/local.json     ${D}/home/${INSTALL_USER}/.webthings/config/local.json
+    install -d                               ${D}/home/${INSTALL_USER}/.webthings/log
+    install -Dm644 ${WORKDIR}/${PN}.profile  ${D}/home/${INSTALL_USER}/.profile
+
+    # override post-upgrade.sh
+    # install -m755 ${WORKDIR}/post-upgrade.sh        ${D}${INSTALL_BASE}/tools/
 
     find ${D}${INSTALL_BASE} -type d -exec chmod 0755 '{}' +
 
     if ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}; then
-        install -Dm644 ${WORKDIR}/${PN}.service  ${D}${systemd_system_unitdir}/${PN}.service
+        install -Dm644 ${WORKDIR}/${PN}.service                  ${D}${systemd_system_unitdir}/${PN}.service
+        install -Dm644 ${WORKDIR}/${PN}.check-for-update.timer   ${D}${systemd_system_unitdir}/${PN}.check-for-update.timer
+        install -Dm644 ${WORKDIR}/${PN}.check-for-update.service ${D}${systemd_system_unitdir}/${PN}.check-for-update.service
     fi
-
-    install -d ${D}/home/root/.mozilla-iot
-    install -d ${D}/home/root/.webthings
-    install -d ${D}/home/root/.webthings/config
-    install -d ${D}/home/root/.webthings/log
-
 }
 
+SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', '', d)}"
-SYSTEMD_SERVICE_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.service', '', d)}"
+SYSTEMD_SERVICE_${PN} += "\
+    ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.service', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.check-for-update.timer', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}.check-for-update.service', '', d)} \
+"
 
 FILES_${PN} += "\
     /opt \

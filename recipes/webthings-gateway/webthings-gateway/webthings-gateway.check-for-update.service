@@ -1,0 +1,13 @@
+[Unit]
+Description=WebThings Gateway Client Update Checker
+After=network.target
+
+[Service]
+Type=simple
+StandardOutput=journal
+StandardError=journal
+User=root
+# Edit this line, if needed, to specify where you installed the server
+WorkingDirectory=/opt/gateway
+# Edit this line, if needed, to set the correct path to the script
+ExecStart=/opt/gateway/tools/check-for-update.sh

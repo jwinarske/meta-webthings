@@ -14,7 +14,7 @@ const home = os.homedir();
 
 module.exports = {
   // Base profile directory
-  profileDir: `${HOME}/.webthings`,
+  profileDir: `${home}/.webthings`,
 
   ports: {
     // HTTPS port

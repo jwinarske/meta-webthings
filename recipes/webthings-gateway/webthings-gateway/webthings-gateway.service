@@ -3,10 +3,11 @@ Description=Mozilla WebThings Gateway
 After=network.target
 
 [Service]
+Environment=WEBTHINGS_HOME=/home/root/.webthings
 Type=simple
 StandardOutput=journal
 StandardError=journal
-WorkingDirectory=/opt/webthings-gateway
+WorkingDirectory=/opt/gateway
 ExecStart=/usr/bin/node build/app.js
 Restart=always
 RestartSec=10s

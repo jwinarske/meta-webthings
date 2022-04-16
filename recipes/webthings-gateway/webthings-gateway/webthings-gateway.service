@@ -7,7 +7,7 @@ Type=simple
 StandardOutput=journal
 StandardError=journal
 WorkingDirectory=/opt/webthings-gateway
-ExecStart=/usr/bin/webthings-gateway
+ExecStart=/usr/bin/node build/app.js
 Restart=always
 RestartSec=10s
 

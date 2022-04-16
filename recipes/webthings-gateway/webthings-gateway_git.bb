@@ -11,19 +11,12 @@ DEPENDS += " \
     "
 
 RDEPENDS_${PN} += " \
-    autoconf \
     bash \
     boost \
-    dnsmasq \
-    git \
     glib-2.0 \
-    hostapd \
     libffi \
-    libpng \
-    libtool \
     ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'libudev', '', d)} \
     libusb1 \
-    make \
     nodejs \
     ${@bb.utils.contains('DISTRO_FEATURES', 'polkit', 'polkit', '', d)} \
     python3 \
@@ -42,7 +35,6 @@ SRC_URI = " \
     file://webthings-gateway.conf \
     file://webthings-gateway.profile \
     file://webthings-gateway.service \
-    file://package_paths_fixup.sh \
     "
 
 S = "${WORKDIR}/git"
@@ -90,7 +82,6 @@ do_compile() {
         --build-from-source=true \
         --loglevel=verbose \
         --python=${STAGING_DIR_NATIVE}${bindir}/python3-native/python3 \
-        --release=true \
         --sqlite=${STAGING_DIR_TARGET}${libdir} \
         --target-arch=${TARGET_ARCH} \
         install fsevents@latest -f --save-optional
@@ -110,9 +101,16 @@ do_compile() {
     ./node_modules/.bin/webpack i ||true
 
     echo '* build ******************************************'
+    rm -rf build
+    cp -rL src build
+    find build -name '*.ts' -delete
+    ./node_modules/.bin/tsc -p .
     ./node_modules/.bin/webpack --stats verbose
 
-    echo '* prune tree *************************************'
+    find build -name '*.ts' -delete
+    find build -name '*.map' -delete
+
+    echo '* remove devDependencies packages ****************'
     npm prune --production
 
     echo '* clean up ***************************************'
@@ -122,9 +120,11 @@ do_compile() {
     rm -rf node_modules/node-gyp/gyp/samples/
     rm -rf node_modules/fsevents/*.node
 
-    find node_modules -iname .deps -print0 | xargs -0 -n1 rm -rf
-    find node_modules -iname obj.target -print0 | xargs -0 -n1 rm -rf
+    # find node_modules -iname .map -print0 | xargs -0 -n1 rm -rf
+    # find node_modules -iname .deps -print0 | xargs -0 -n1 rm -rf
+    # find node_modules -iname obj.target -print0 | xargs -0 -n1 rm -rf
 
+    echo '* fix up paths ***********************************'
     find node_modules -iname package.json -print0 | xargs -0 -n1 sed -i "s|${S}|${INSTALL_BASE}|g"
 }
 
@@ -149,7 +149,6 @@ do_install() {
 
     cp -r build                     ${D}${INSTALL_BASE}/
     cp -r node_modules              ${D}${INSTALL_BASE}/
-    cp -r src                       ${D}${INSTALL_BASE}/
     cp -r static                    ${D}${INSTALL_BASE}/
     cp -r tools                     ${D}${INSTALL_BASE}/
 
@@ -158,6 +157,12 @@ do_install() {
     if ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}; then
         install -Dm644 ${WORKDIR}/${PN}.service  ${D}${systemd_system_unitdir}/${PN}.service
     fi
+
+    install -d ${D}/home/root/.mozilla-iot
+    install -d ${D}/home/root/.webthings
+    install -d ${D}/home/root/.webthings/config
+    install -d ${D}/home/root/.webthings/log
+
 }
 
 SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${PN}', '', d)}"
@@ -165,5 +170,6 @@ SYSTEMD_SERVICE_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '${
 
 FILES_${PN} += "\
     /opt \
+    /home \
     ${systemd_system_unitdir} \
     "

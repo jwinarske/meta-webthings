@@ -15,7 +15,6 @@ RDEPENDS_${PN} += " \
     boost \
     curl \
     ffmpeg \
-    gateway-addon-node \
     git \
     glib-2.0 \
     iputils \

@@ -3,8 +3,11 @@
 OpenEmbedded layer for latest WebThingsIO releases.
 
 # Layer Status
+
   Needs more testing around runtime dependencies and WiFi/BT
+
   ie. system info plugin is depedendent on `iw`
+
   ie. Update service is running, but not actually tested with an update.
 
 ## Dynamic Dependency

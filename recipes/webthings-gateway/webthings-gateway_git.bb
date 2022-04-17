@@ -10,13 +10,12 @@ DEPENDS += " \
     sqlite3 \
     "
 
-# arping wiringpi
-
 RDEPENDS_${PN} += " \
     bash \
     boost \
     curl \
     ffmpeg \
+    gateway-addon-node \
     git \
     glib-2.0 \
     iputils \
@@ -33,6 +32,7 @@ RDEPENDS_${PN} += " \
     python3-six \
     sqlite3 \
     ${@bb.utils.contains('DISTRO_FEATURES', 'pam', 'util-linux', '', d)} \
+    webthings-default-language-en \
     "
 
 PV = "1.1.0+git${SRCPV}"
@@ -53,7 +53,7 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-inherit base systemd
+inherit systemd
 
 INSTALL_BASE = "/opt/gateway"
 INSTALL_USER = "root"
@@ -150,14 +150,13 @@ do_install() {
     install -m644 package.json               ${D}${INSTALL_BASE}/
     install -m644 package-lock.json          ${D}${INSTALL_BASE}/
     install -m755 pagekite.py                ${D}${INSTALL_BASE}/
-    #install -m644 requirements.txt           ${D}${INSTALL_BASE}/
 
     install -Dm644 ${WORKDIR}/local.json     ${D}/home/${INSTALL_USER}/.webthings/config/local.json
     install -d                               ${D}/home/${INSTALL_USER}/.webthings/log
     install -Dm644 ${WORKDIR}/${PN}.profile  ${D}/home/${INSTALL_USER}/.profile
 
     # override post-upgrade.sh
-    # install -m755 ${WORKDIR}/post-upgrade.sh        ${D}${INSTALL_BASE}/tools/
+    install -m755 ${WORKDIR}/post-upgrade.sh        ${D}${INSTALL_BASE}/tools/
 
     find ${D}${INSTALL_BASE} -type d -exec chmod 0755 '{}' +
 

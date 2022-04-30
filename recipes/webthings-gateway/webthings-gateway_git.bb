@@ -44,10 +44,10 @@ SRC_URI = " \
     file://local.json \
     file://run-app.sh \
     file://post-upgrade.sh \
-    file://${PN}.profile \
-    file://${PN}.service \
-    file://${PN}.check-for-update.service \
-    file://${PN}.check-for-update.timer \
+    file://${BPN}.profile \
+    file://${BPN}.service \
+    file://${BPN}.check-for-update.service \
+    file://${BPN}.check-for-update.timer \
     "
 
 S = "${WORKDIR}/git"

@@ -1,6 +1,6 @@
 CARGO_BUILD_FLAGS += "--examples"
 
-cargo_do_install_append() {
+cargo_do_install:append() {
 
     rm ${D}${bindir}/multiple_things-*
     rm ${D}${bindir}/single_thing-*

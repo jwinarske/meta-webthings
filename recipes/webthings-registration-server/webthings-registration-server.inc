@@ -14,7 +14,7 @@ SRC_URI += " \
     file://pdns.conf \
     "
 
-cargo_do_install_append() {
+cargo_do_install:append() {
 
     mv ${D}${bindir}/main ${D}${bindir}/${PN}
 

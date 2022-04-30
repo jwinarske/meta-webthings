@@ -11,7 +11,7 @@ SRC_URI += "git://github.com/WebThingsIO/registration_server.git;protocol=https;
 SRCREV = "697e7b10ecbd7a7751734259034df149a955e8ef"
 S = "${WORKDIR}/git"
 CARGO_SRC_DIR = ""
-PV_append = ".AUTOINC+697e7b10ec"
+PV:append = ".AUTOINC+697e7b10ec"
 
 # please note if you have entries that do not begin with crate://
 # you must change them to how that package can be fetched
